@@ -1,0 +1,13 @@
+kind: Subscription
+metadata:
+  labels:
+    operators.coreos.com/devspaces.openshift-operators: ""
+  name: devspaces
+  namespace: openshift-operators
+spec:
+  channel: stable
+  installPlanApproval: Automatic
+  name: devspaces
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+  startingCSV: devspacesoperator.v3.4.0-0.1675914643.p
