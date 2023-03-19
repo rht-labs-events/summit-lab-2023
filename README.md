@@ -1,5 +1,4 @@
-# summit-lab-2023
-A full developer experience in your cloud - Mastering Red Hat OpenShift Dev Spaces in Enterprise Environments
+# A full developer experience in your cloud <br />- Mastering Red Hat OpenShift Dev Spaces in <br /> &nbsp;&nbsp;&nbsp;Enterprise Environments
 
 ## Description
 
