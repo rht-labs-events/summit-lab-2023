@@ -1,2 +1,4 @@
-* [Lab Intro](/intro/README.md)
-* [Scenario 1](/scenario1/README.md)
+* [Home](/)
+* [1. Setup](exercise1/README.md)
+  * [OpenShift Access](exercise1/openshift.md)
+  * [DevSpaces](exercise1/devspaces.md)
