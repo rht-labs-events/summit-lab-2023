@@ -1,4 +1,4 @@
-# A full developer experience in your cloud - Mastering OpenShift DevSpaces in Enterprise Environments
+## A full developer experience in your cloud <br />- Mastering Red Hat OpenShift Dev Spaces in Enterprise Environments
 
 During this session, the attendees will learn the key concepts around mastering Red Hat OpenShift Dev Spaces in Enterprise Environments.
 
