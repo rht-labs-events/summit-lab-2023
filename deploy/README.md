@@ -12,18 +12,9 @@ oc apply -f deploy/bootstrap/operators/openshift-gitops.yaml
 oc apply -f deploy/lab-content/apps/checluster.yaml 
 ```
 
-> **_NOTE:_** The deployment seems to fail to apply the correct label to the namespace it creates and hence causes ArgoCD App sync to fail with lack of permissions. The following namespace label fixes this issue:
+> **NOTE:** The following may not be needed for the Lab:
 
-```
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: openshift-devspaces
-  labels:
-    argocd.argoproj.io/managed-by: openshift-gitops
-```
-
-3. Now set up the Lab space / specific ArgoCD instance to be used to manage Lab content: 
+3. Now set up the Lab space specific ArgoCD instance to be used to manage Lab content:
 
 ```
 oc apply -f deploy/lab-content/gitops/argocd.yaml 
