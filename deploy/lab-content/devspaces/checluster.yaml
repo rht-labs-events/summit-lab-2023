@@ -1,0 +1,17 @@
+kind: CheCluster
+apiVersion: org.eclipse.che/v2
+metadata:
+  name: devspaces
+  namespace: openshift-devspaces
+spec:
+  components:
+    dashboard:
+      headerMessage:
+        show: true
+        text: >-
+          Welcome To the RH OpenShift Dev Spaces Lab. Enjoy!
+  containerRegistry: {}
+  devEnvironments: {}
+  gitServices: {}
+  networking: {}
+
