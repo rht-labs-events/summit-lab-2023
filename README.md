@@ -1,4 +1,4 @@
-# A full developer experience in your cloud <br />- Mastering Red Hat OpenShift Dev Spaces in <br /> &nbsp;&nbsp;&nbsp;Enterprise Environments
+## A full developer experience in your cloud <br />- Mastering Red Hat OpenShift Dev Spaces in <br /> &nbsp;&nbsp;&nbsp;Enterprise Environments
 
 ## Description
 
