@@ -11,4 +11,4 @@ spec:
   name: devspaces
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: devspacesoperator.v3.4.0-0.1675914643.p
+  startingCSV: devspacesoperator.v3.5.0
