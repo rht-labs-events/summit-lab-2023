@@ -9,8 +9,7 @@ oc apply -f deploy/bootstrap/operators/openshift-gitops.yaml
 2. Next, apply the CheCluster ArgoCD Application to spin up RH OpenShift Dev Spaces:
 
 ```
-oc apply -f deploy/lab-content/apps/devspaces.yaml
-oc apply -f deploy/lab-content/apps/checluster.yaml 
+oc apply -f deploy/lab-content/apps/
 ```
 
 > **NOTE:** The following may not be needed for the Lab:
