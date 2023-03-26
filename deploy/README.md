@@ -8,6 +8,13 @@
 oc apply -f deploy/bootstrap/operators/openshift-gitops.yaml
 ```
 
+2. Configure RH SSO 
+
+```
+oc apply -f deploy/lab-content/apps/rhsso-operator.yaml 
+oc apply -f deploy/lab-content/apps/rhsso.yaml 
+```
+
 2. Next, apply the CheCluster ArgoCD Application to spin up RH OpenShift Dev Spaces:
 
 ```

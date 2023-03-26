@@ -1,0 +1,26 @@
+---
+kind: OperatorGroup
+apiVersion: operators.coreos.com/v1
+metadata:
+  name: devspaces-lab-sso
+  namespace: devspaces-lab-sso
+spec:
+  targetNamespaces:
+    - devspaces-lab-sso
+  upgradeStrategy: Default
+---
+kind: Subscription
+apiVersion: operators.coreos.com/v1alpha1
+metadata:
+  labels:
+    operators.coreos.com/rhsso-operator.devspaces-lab-sso: ""
+  name: rhsso-operator
+  namespace: devspaces-lab-sso
+spec:
+  channel: stable
+  installPlanApproval: Automatic
+  name: rhsso-operator
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+  startingCSV: rhsso-operator.7.6.2-opr-001
+

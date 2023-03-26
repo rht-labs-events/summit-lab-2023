@@ -1,0 +1,13 @@
+---
+kind: Keycloak
+apiVersion: keycloak.org/v1alpha1
+metadata:
+  labels:
+    app: devspaces-lab-sso
+  name: keycloak
+  namespace: devspaces-lab-sso
+spec:
+  externalAccess:
+    enabled: true
+  instances: 1
+
