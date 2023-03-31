@@ -233,7 +233,7 @@ spec:
           command:
           - "/usr/bin/scl"
           - enable
-          - rh-postgresql96
+          - rh-postgresql13
           - export PGPASSWORD='{{ .Values.gitlab.db_admin_pass }}'; psql -h '{{ $.Values.gitlab_app_name }}-postgresql'
             -U postgres -d {{ .Values.gitlab.db_name | default "gitlabhq_production" }} -c 'CREATE EXTENSION IF NOT EXISTS
             pg_trgm;'
@@ -355,7 +355,7 @@ spec:
           - |
             echo "Patching the postgresql, waiting a mo for it to be up ..."
             sleep 30
-            /usr/bin/scl enable rh-postgresql96
+            /usr/bin/scl enable rh-postgresql13
             export PGPASSWORD='{{ .Values.gitlab.db_admin_pass }}'
             psql -h '{{ .Values.gitlab_app_name }}-postgresql' -U postgres -d {{ .Values.gitlab.db_name | default "gitlabhq_production" }} -c 'CREATE EXTENSION IF NOT EXISTS pg_trgm;'
             exit 0

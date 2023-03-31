@@ -22,5 +22,5 @@ gitlab:
       stream_uri: "redis:5.0.4-alpine"
     - name: "postgresql"
       tag_name: "latest"
-      stream_uri: "registry.redhat.io/rhscl/postgresql-96-rhel7"
+      stream_uri: "registry.redhat.io/rhscl/postgresql-13-rhel7"
 
