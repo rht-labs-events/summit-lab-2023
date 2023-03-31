@@ -70,20 +70,20 @@ spec:
         - name: GITLAB_OMNIBUS_CONFIG
           value:
             root_pass='{{ $.Values.gitlab.root_password | default "kJ4e9qLkm4pOhQnbn7nE" }}';
-            external_url "https://{{ $.Values.gitlab.route }}";
+            external_url "https://{{ .Values.gitlab.route }}";
             nginx['listen_port']=80;
             nginx['listen_https']=false;
             gitlab_rails['initial_root_password']=root_pass;
             gitlab_rails['gitlab_port']=80;
             letsencrypt['enable'] = false;
             postgresql['enable']=false;
-            gitlab_rails['db_host'] = '{{ $.Values.gitlab_app_name }}-postgresql';
-            gitlab_rails['db_password']='{{ $.Values.db_pass }}';
-            gitlab_rails['db_username']='{{ $.Values.db_user }}';
+            gitlab_rails['db_host'] = '{{ .Values.gitlab_app_name }}-postgresql';
+            gitlab_rails['db_password']='{{ .Values.gitlab.db_pass }}';
+            gitlab_rails['db_username']='{{ .Values.gitlab.db_user }}';
             gitlab_rails['db_database']='{{ .Values.gitlab.db_name | default "gitlabhq_production" }}';
             redis['enable'] = false; 
-            gitlab_rails['redis_host']='{{ $.Values.gitlab_app_name }}-redis';
-            unicorn['worker_processes'] = {{ .Values.gitlab.uni_workers | default 2 }}; 
+            gitlab_rails['redis_host']='{{ .Values.gitlab_app_name }}-redis';
+            puma['worker_processes'] = {{ .Values.gitlab.uni_workers | default 2 }};
             manage_accounts['enable'] = true;
             manage_storage_directories['manage_etc'] = false; 
             gitlab_shell['auth_file'] = '/gitlab-data/ssh/authorized_keys';
@@ -234,7 +234,7 @@ spec:
           - "/usr/bin/scl"
           - enable
           - rh-postgresql96
-          - export PGPASSWORD='{{ $.Values.db_admin_pass }}'; psql -h '{{ $.Values.gitlab_app_name }}-postgresql'
+          - export PGPASSWORD='{{ .Values.gitlab.db_admin_pass }}'; psql -h '{{ $.Values.gitlab_app_name }}-postgresql'
             -U postgres -d {{ .Values.gitlab.db_name | default "gitlabhq_production" }} -c 'CREATE EXTENSION IF NOT EXISTS
             pg_trgm;'
           env:
@@ -312,7 +312,7 @@ spec:
         - name: POSTGRESQL_DATABASE
           value: "{{ .Values.gitlab.db_name }}"
         - name: POSTGRESQL_ADMIN_PASSWORD
-          value: "{{ .Values.db_admin_pass }}"
+          value: "{{ .Values.gitlab.db_admin_pass }}"
         resources:
           limits:
             cpu: '1'
@@ -356,8 +356,8 @@ spec:
             echo "Patching the postgresql, waiting a mo for it to be up ..."
             sleep 30
             /usr/bin/scl enable rh-postgresql96
-            export PGPASSWORD='{{ $.Values.db_admin_pass }}'
-            psql -h '{{ $.Values.gitlab_app_name }}-postgresql' -U postgres -d {{ .Values.gitlab.db_name | default "gitlabhq_production" }} -c 'CREATE EXTENSION IF NOT EXISTS pg_trgm;'
+            export PGPASSWORD='{{ .Values.gitlab.db_admin_pass }}'
+            psql -h '{{ .Values.gitlab_app_name }}-postgresql' -U postgres -d {{ .Values.gitlab.db_name | default "gitlabhq_production" }} -c 'CREATE EXTENSION IF NOT EXISTS pg_trgm;'
             exit 0
         image: "registry.redhat.io/rhscl/postgresql-96-rhel7:latest"
         imagePullPolicy: IfNotPresent

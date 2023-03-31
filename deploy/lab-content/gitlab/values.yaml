@@ -7,10 +7,10 @@ namespaces:
 gitlab:
   namespace: gitlab-ce
   version: gitlab-15.8.5
-  route: https://
+  route: <hostname>
   root_password: 7aydhn160bOrrsGEbnd172rE
   db_user: 'db_user'
-  db_password: 'db_password'
+  db_pass: 'db_password'
   db_admin_pass: 'db_admin_passwd'
   db_name: 'gitlabhq_production'
   imagestreams:
