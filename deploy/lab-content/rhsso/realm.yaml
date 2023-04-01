@@ -1,0 +1,20 @@
+---
+kind: KeycloakRealm
+apiVersion: keycloak.org/v1alpha1
+metadata:
+  name: keycloakrealm
+  namespace: devspaces-lab-sso
+  finalizers:
+    - realm.cleanup
+  labels:
+    app: devspaces-lab-sso
+spec:
+  instanceSelector:
+    matchLabels:
+      app: devspaces-lab-sso
+  realm:
+    displayName: Dev Spaces Realm
+    enabled: true
+    id: devspaces
+    realm: devspaces
+
