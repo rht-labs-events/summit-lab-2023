@@ -2,7 +2,7 @@
 kind: KeycloakClient
 apiVersion: keycloak.org/v1alpha1
 metadata:
-  name: client
+  name: gitlab-client
   namespace: devspaces-lab-sso
   labels:
     app: devspaces-lab-sso
@@ -15,7 +15,7 @@ spec:
       - "https://*"
     webOrigins:
       - "'*'"
-    clientId: openshift-client
+    clientId: gitlab-client
     secret: DevSpacesLab2023
     clientAuthenticatorType: client-secret
     directAccessGrantsEnabled: true

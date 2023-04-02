@@ -7,8 +7,15 @@ namespaces:
 gitlab:
   namespace: gitlab-ce
   version: gitlab-15.8.5
-  route: <hostname>
-  root_password: 7aydhn160bOrrsGEbnd172rE
+  route: '<gitlab-fqdn>'
+  sso:
+    host: 'https://<sso-fqdn>'
+    label: 'RH SSO'
+    realm: 'devspaces'
+    client:
+      identifier: 'gitlab-client'
+      secret: 'DevSpacesLab2023'
+  root_password: '7aydhn160bOrrsGEbnd172rE'
   db_user: 'db_user'
   db_pass: 'db_password'
   db_admin_pass: 'db_admin_passwd'

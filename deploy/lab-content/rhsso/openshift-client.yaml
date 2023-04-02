@@ -1,0 +1,29 @@
+---
+kind: KeycloakClient
+apiVersion: keycloak.org/v1alpha1
+metadata:
+  name: openshift-client
+  namespace: devspaces-lab-sso
+  labels:
+    app: devspaces-lab-sso
+spec:
+  realmSelector:
+     matchLabels:
+      app: devspaces-lab-sso
+  client:
+    redirectUris:
+      - "https://*"
+    webOrigins:
+      - "'*'"
+    clientId: openshift-client
+    secret: DevSpacesLab2023
+    clientAuthenticatorType: client-secret
+    directAccessGrantsEnabled: true
+    enabled: true
+    fullScopeAllowed: true
+    nodeReRegistrationTimeout: -1
+    standardFlowEnabled: true
+    protocol: openid-connect    
+    defaultClientScopes:
+      - profile
+      - email
