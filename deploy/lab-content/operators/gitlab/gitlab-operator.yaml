@@ -4,9 +4,7 @@ kind: OperatorGroup
 metadata:
   name: gitlab
   namespace: gitlab-system
-spec:
-  targetNamespaces:
-  - gitlab-ce
+spec: {}
 ---
 kind: Subscription
 apiVersion: operators.coreos.com/v1alpha1
