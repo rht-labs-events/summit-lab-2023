@@ -7,7 +7,7 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: openshift-devspaces
+    namespace: devspaces
     server: https://kubernetes.default.svc
   project: default
   source:
@@ -18,7 +18,7 @@ spec:
     targetRevision: main
   syncPolicy:
     automated:
-      prune: true
+      prune: false
       selfHeal: true
     managedNamespaceMetadata:
       labels:
