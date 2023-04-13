@@ -1,0 +1,24 @@
+---
+kind: KeycloakUser
+apiVersion: keycloak.org/v1alpha1
+metadata:
+  name: user-labadmin
+  namespace: devspaces-lab-sso
+  finalizers:
+    - user.cleanup
+  labels:
+    app: devspaces-lab-sso-user-labadmin
+spec:
+  realmSelector:
+    matchLabels:
+      app: devspaces-lab-sso
+  user:
+    credentials:
+      - type: password
+        value: DevSpacesLabAdmin
+    email: labadmin@example.com
+    enabled: true
+    firstName: Lab
+    lastName: Admin
+    username: labadmin
+
