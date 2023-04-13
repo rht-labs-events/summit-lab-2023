@@ -30,6 +30,17 @@ oc apply -f deploy/lab-content/gitops/argocd.yaml
 ```
 
 
+
+## Seeding Content and preparing the environment
+
+1. Run the following Ansible Playbook:
+
+```
+cd ansible
+ansible-playbook -i inventory main.yml -e 'api_url=https://gitlab.apps.<domain>'
+```
+
+
 ## Clean-up
 
 1. Start by deleting the checluster application
