@@ -11,3 +11,17 @@
         import_url: https://github.com/rht-labs-events/summit-lab-2023 
         visibility: public
         state: present
+    - name: Obtain GitLab Access Token
+      uri:
+        url: "{{ api_url }}/oauth/token"
+        method: POST
+        body_format: json
+        headers:
+          Content-Type: application/json
+        body: >
+          {
+          "grant_type": "password",
+          "username": "{{ gitlab_root_username }}",
+          "password": "{{ gitlab_root_password }}"
+          }
+      register: gitlab_access_token
