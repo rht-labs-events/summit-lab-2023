@@ -7,7 +7,7 @@ metadata:
   labels:
     app: "{{ .Values.gitlab_app_name }}"
 spec:
-  host: "{{ .Values.gitlab.route }}"
+  host: "gitlab.{{ include "openshift_app_domain" . }}"
   to:
     kind: Service
     name: "{{ $.Values.gitlab_app_name }}"
