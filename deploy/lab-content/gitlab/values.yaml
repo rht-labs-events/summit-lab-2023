@@ -7,7 +7,9 @@ namespaces:
 gitlab:
   namespace: gitlab-ce
   version: gitlab-15.8.5
+  route: '<gitlab-fqdn>'
   sso:
+    host: 'https://<sso-fqdn>'
     label: 'RH SSO'
     realm: 'devspaces'
     client:
