@@ -8,27 +8,30 @@
 oc apply -f deploy/bootstrap/operators/openshift-gitops.yaml
 ```
 
-2. Configure RH SSO 
-
-```
-oc apply -f deploy/lab-content/apps/rhsso-operator.yaml 
-oc apply -f deploy/lab-content/apps/rhsso.yaml 
-```
-
-2. Next, apply the CheCluster ArgoCD Application to spin up RH OpenShift Dev Spaces:
+2. Deploy the ArgoCD applications
 
 ```
 oc apply -f deploy/lab-content/apps/
 ```
 
-> **NOTE:** The following may not be needed for the Lab:
+3. Wait for the following components to be ready:
+  - OpenShift GitOps
+  - Red Hat SSO
+  - OpenShift Dev Spaces
 
-3. Now set up the Lab space specific ArgoCD instance to be used to manage Lab content:
+4. Update the 'values.yaml' file and deploy GitLab
+
+Change the following two fields in the gitlab values.yaml file:
+  - `route: '<gitlab-fqdn>'` << replace this with the full gitlab fqdn, e.g.: `gitlab.apps.cluster.domain.com`
+  - `hosts: 'https://<sso-fqdn>'` << replace this with the SSO fqdn from the above app deployment
+
+Next, deploy gitlab with the following command:
 
 ```
-oc apply -f deploy/lab-content/gitops/argocd.yaml 
+helm template deploy/lab-content/gitlab | oc apply -f -
 ```
 
+Wait for GitLab to fully come up (need 5-10 minutes) before proceeding with the next step.
 
 
 ## Seeding Content and preparing the environment
