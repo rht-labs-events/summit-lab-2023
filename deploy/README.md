@@ -31,6 +31,8 @@ Next, deploy gitlab with the following command:
 helm template deploy/lab-content/gitlab | oc apply -f -
 ```
 
+Wait for GitLab to fully come up (need 5-10 minutes) before proceeding with the next step.
+
 
 ## Seeding Content and preparing the environment
 
