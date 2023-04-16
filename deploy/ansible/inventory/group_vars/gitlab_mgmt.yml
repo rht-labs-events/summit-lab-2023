@@ -1,8 +1,10 @@
 ---
 
-api_url: https://gitlab.example.com
-api_username: labadmin
-api_password: DevSpacesLabAdmin
-
 gitlab_root_username: root
 gitlab_root_password: 7aydhn160bOrrsGEbnd172rE
+
+api_url: https://gitlab.example.com
+api_username: "{{ gitlab_root_username }}"
+api_password: "{{ gitlab_root_password }}"
+
+
