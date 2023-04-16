@@ -1,0 +1,117 @@
+#
+# Copyright (c) 2018-2021 Red Hat, Inc.
+# This program and the accompanying materials are made
+# available under the terms of the Eclipse Public License 2.0
+# which is available at https://www.eclipse.org/legal/epl-2.0/
+#
+# SPDX-License-Identifier: EPL-2.0
+#
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: che-devfile-registry
+  labels:
+    app: che
+    component: devfile-registry
+    app.kubernetes.io/name: che
+    app.kubernetes.io/instance: che
+    app.kubernetes.io/component: devfile-registry
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: che
+      component: devfile-registry
+  template:
+    metadata:
+      labels:
+        app: che
+        component: devfile-registry
+        app.kubernetes.io/name: che
+        app.kubernetes.io/instance: che
+        app.kubernetes.io/component: devfile-registry
+    spec:
+      containers:
+      - image: quay.io/etsauer/che-devfile-registry:next
+        imagePullPolicy: Always
+        name: che-devfile-registry
+        ports:
+        - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /devfiles/
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /devfiles/
+            port: 8080
+          initialDelaySeconds: 3
+          periodSeconds: 10
+          timeoutSeconds: 3
+        resources:
+          requests:
+            cpu: 100m
+            memory: 32Mi
+          limits:
+            memory: 256Mi
+        envFrom:
+        - configMapRef:
+            name: che-devfile-registry
+            optional: true
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: che-devfile-registry
+  labels:
+    app.kubernetes.io/name: che
+    app.kubernetes.io/instance: che
+    app.kubernetes.io/component: devfile-registry
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: che
+    component: devfile-registry
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: che-devfile-registry
+  labels:
+    app.kubernetes.io/name: che
+    app.kubernetes.io/instance: che
+    app.kubernetes.io/component: devfile-registry
+spec:
+  tls:
+    termination:
+      edge
+  to:
+    kind: Service
+    name: che-devfile-registry
+    weight: 100
+  port:
+    targetPort: 8080
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: che-devfile-registry
+  labels:
+    app.kubernetes.io/name: che
+    app.kubernetes.io/instance: che
+    app.kubernetes.io/component: devfile-registry
+data:
+    CHE_DEVFILE_IMAGES_REGISTRY_URL: ${CHE_DEVFILE_IMAGES_REGISTRY_URL}
+    CHE_DEVFILE_IMAGES_REGISTRY_ORGANIZATION: ${CHE_DEVFILE_IMAGES_REGISTRY_ORGANIZATION}
+    CHE_DEVFILE_IMAGES_REGISTRY_TAG: ${CHE_DEVFILE_IMAGES_REGISTRY_TAG}
