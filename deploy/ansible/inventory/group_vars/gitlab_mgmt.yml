@@ -3,7 +3,8 @@
 gitlab_root_username: root
 gitlab_root_password: 7aydhn160bOrrsGEbnd172rE
 
-api_url: https://gitlab.example.com
+cluster_domain: example.com
+api_url: "https://gitlab.apps.{{ cluster_domain }}"
 api_username: "{{ gitlab_root_username }}"
 api_password: "{{ gitlab_root_password }}"
 
