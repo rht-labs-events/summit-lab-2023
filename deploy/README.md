@@ -6,6 +6,7 @@
 
 ``` 
 oc apply -f deploy/bootstrap/operators/openshift-gitops.yaml
+oc label ns/openshift-authentication argocd.argoproj.io/managed-by=openshift-gitops
 oc label ns/openshift-config argocd.argoproj.io/managed-by=openshift-gitops
 ```
 
