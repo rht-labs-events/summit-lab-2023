@@ -41,9 +41,9 @@ Wait for GitLab to fully come up (need 5-10 minutes) before proceeding with the 
 
 ```
 cd ansible
-ansible-playbook -i inventory main.yml -e 'api_url=https://gitlab.apps.<domain>'
+pip install -r requirements.txt
+ansible-playbook -i inventory main.yml -e 'cluster_domain=<cluster id>.p1.openshiftapps.com'
 ```
-
 
 ## Clean-up
 
