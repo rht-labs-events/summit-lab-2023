@@ -86,5 +86,5 @@
                 che.eclipse.org/scm-server-endpoint: "{{ api_url }}"
             type: Opaque
             data:
-              id: "{{ new_oauth_app.json.application_id }}"
-              secret: "{{ new_oauth_app.json.secret }}"
+              id: "{{ new_oauth_app.json.application_id | b64encode }}"
+              secret: "{{ new_oauth_app.json.secret | b64encode }}"
