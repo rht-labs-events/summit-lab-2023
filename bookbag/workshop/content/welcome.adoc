@@ -7,8 +7,8 @@ Welcome to this Lab for "A full developer experience in your cloud environment: 
 
 Your info is below - please make note of this for access to the lab:
 
-*username:* {user}
-*password:* {password}
+* *username:* {user}
+* *password:* {password}
 
 Please click on the following link to get started:
 https://bookbag-instructions.{openshift_cluster_ingress_domain}
