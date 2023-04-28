@@ -1,8 +1,15 @@
 :guid: %guid%
 :openshift_cluster_ingress_domain: %openshift_cluster_ingress_domain%
+:user: %user%
+:password: %password%
 
 Welcome to this Lab for "A full developer experience in your cloud environment: Mastering Red Hat OpenShift Dev Spaces"
 
-Please click on the following link to start:
+Your info is below - please make note of this for access to the lab:
+
+*username:* {user}
+*password:* {password}
+
+Please click on the following link to get started:
 https://bookbag-instructions.{openshift_cluster_ingress_domain}
 
