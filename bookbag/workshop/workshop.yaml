@@ -1,0 +1,5 @@
+---
+name: RH OpenShift Dev Spaces Lab
+modules:
+  activate:
+    - welcome
