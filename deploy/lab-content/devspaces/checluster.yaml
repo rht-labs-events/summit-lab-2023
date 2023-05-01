@@ -9,11 +9,6 @@ spec:
         show: true
         text: >-
           Welcome To the RH OpenShift Dev Spaces Lab. Enjoy!
-    devfileRegistry:
-      disableInternalRegistry: true
-      externalDevfileRegistries:
-        - url: >-
-            https://che-devfile-registry-devspaces-devfile.apps.rosa-j6hqt.ox8d.p1.openshiftapps.com
   containerRegistry: {}
   devEnvironments:
     disableContainerBuildCapabilities: false
