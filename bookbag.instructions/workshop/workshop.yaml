@@ -1,0 +1,10 @@
+---
+name: RH OpenShift Dev Spaces Lab
+modules:
+  activate:
+    - overview
+    - explore-environment
+    - getting-started
+    - junior-developer
+    - advanced-developer
+    - bonus

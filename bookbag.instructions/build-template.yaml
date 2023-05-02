@@ -1,0 +1,54 @@
+apiVersion: template.openshift.io/v1
+kind: Template
+message: |
+  Created ${NAME} BuildConfig and ImageStream instance
+
+metadata:
+  annotations:
+    openshift.io/display-name: Bookbag Build
+    tags: gpte
+    template.openshift.io/bindable: "false"
+  name: bookbag-build
+
+parameters:
+  - name: NAME
+    required: true
+    value: bookbag
+  - name: BUILDER_IMAGE
+    required: true
+    value: quay.io/openshifthomeroom/workshop-dashboard:5.0.0
+  - name: GIT_REPO
+    value: https://github.com/oybed/summit-lab-2023.git
+  - name: GIT_REF
+    value: bookbag.instructions
+  - name: GIT_CONTEXT_DIR
+    value: bookbag.instructions
+
+objects:
+  - apiVersion: image.openshift.io/v1
+    kind: ImageStream
+    metadata:
+      name: ${NAME}
+
+  - apiVersion: build.openshift.io/v1
+    kind: BuildConfig
+    metadata:
+      name: ${NAME}
+    spec:
+      output:
+        to:
+          kind: ImageStreamTag
+          name: ${NAME}:latest
+      source:
+        git:
+          ref: ${GIT_REF}
+          uri: ${GIT_REPO}
+        type: Git
+        contextDir: ${GIT_CONTEXT_DIR}
+      strategy:
+        sourceStrategy:
+          from:
+            kind: DockerImage
+            name: ${BUILDER_IMAGE}
+        type: Source
+      triggers: []
