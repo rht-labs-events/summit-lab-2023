@@ -1,0 +1,19 @@
+---
+modules:
+  overview:
+    name: Overview
+  explore-environment:
+    name: Explore the Environment
+    exit_sign: Getting Started
+  getting-started:
+    name: Getting Started
+    exit_sign: Junior Developer
+  junior-developer:
+    name: Junior Developer
+    exit_sign: Advanced Developer
+  advanced-developer:
+    name: Advanced Developer
+    exit_sign: Bonus
+  bonus:
+    name: Bonus
+
