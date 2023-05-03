@@ -1,6 +1,7 @@
 {
     "guid": "abcde",
     "openshift_cluster_ingress_domain": "apps.abcde.example.com",
+    "openshift_cluster_console_url": "https://console-openshift-console.apps.example.com",
     "example_var": 42,
     "ssh_command": "ssh lab-user@bastion.abcde.example.com",
     "ssh_password": "p4ssword!1",
