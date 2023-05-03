@@ -1,10 +1,72 @@
+:openshift_cluster_console_url: %openshift_cluster_console_url%
 
-Explore Environment
--------------------
+Before we jump in on the actual lab exercises, we thought it would be good to explain how this lab environment is configured and managed. We will also introduce a few concepts and practices that we will utilize throughout the lab exercises to better explain the content that you get to be hands on with. 
 
-This is where the *Explore Environment* section goes ...
+NOTE: This lab environment is primerily deployed and managed by using RH OpenShift GitOps and RH OpenShift Operators. However, as this lab and its content is meant to demonstrate concepts rather than best practices, there are aspects to this deployment that is not production-grade and we do not necessary recommend that you model your deployment based on this lab and its content.
+
+Welcome to the lab, and enjoy!
+
+What is RH OpenShift Dev Spaces
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Brief OpenShift Overview
-^^^^^^^^^^^^^^^^^^^^^^^^
 
+
+Brief RH OpenShift Overview
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Before we go any further, let us briefly explore RH OpenShift together. As you may already know, OpenShift comes in many flavors - including, but not limited to, OpenShift Container Platform, Red Hat OpenShift Sevice on AWS (ROSA), Azure Red Hat OpenShift (ARO), OpenShift on IBM CLoud, etc. However, for the purpose of this lab, the flavor of OpenShift is irrelevant as the content is agnostic of how it is hosted - as long as it is running on OpenShift.
+
+Your lab user account is set up with `cluster-reader` access to allow you permissions to explore all of OpenShift in a read-only capacity. In this chapter we will use this to explore the various components deployed to support the hands-on exercises coming next.
+
+[start=1]
+. Start by accessing OpenShift by clicking the following link: +
+{openshift_cluster_console_url}
+
+. Click on the `RH SSO` option for authentication, and enter your `username` and `password` that were provided to you at the very beginning of this session.
+
+After successfully authenticated with OpenShift, you will be presented with an Overview screen like the one below. Feel free to spend some time here to explore what information is available - including versions, status, consumptions, etc. 
+
+NOTE: The OpenShift Overview dashboard will most likely show multiple warnings and perhaps some errors. Do not worry as this is normal in a multi-user collaboration platform and these should not impact our lab exercises.
+
+image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/openshift-overview.png[alt="OpenShift Overview",width=750,height=750,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/openshift-overview.png]
+
+[start=3]
+. Next click on `Operators >> Installed Operators`
+
+TODO - blah blah +
+GitOps, SSO/keycloak, DevSpaces
+
+[start=4]
+. It all started with GitOps - navigate to ArgoCD to see the deployment
+
+TODO - blah blah +
+... Click ... to access ArgoCD
+
+[start=5]
+. Next let's explore RH SSO and how it is running
+
+TODO - blah blah +
+... Use "Search" to select "Route", then "Name" and enter the SSO route name
+... Login to RH SSO as the user (check that the user will have permissions to explore SSO)
+
+[start=6]
+. Click on `HOME >> Projects`, click in the "Search by name..." box at the top and type "gitlab-ce", then click n the blue link to "gitlab-ce" below
+
+TODO - blah blah +
+... Explore the GitLab deployment
+
+
+Big Picture
+^^^^^^^^^^^
+
+One of the many practices we like to use here at Red Hat is the Big Picture (more details found in the https://openpracticelibrary.com/practice/the-big-picture[Open Practice Library]). This practice allows us to achieve a shared understanding of the deployment regardless of the technical skill level + it allows us to achieve quick directional decisions through dry-run prototyping without requiring actual technology running. 
+
+Below is the Big Picture for the scaffolding described above. Please use the key at the bottom to identify the various components you explored in the previous steps.
+
+image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/bigpicture-scaffolding.jpg[alt="Big Picture - Scaffolding",width=750,height=750,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/bigpicture-scaffolding.jpg]
+
+RH OpenShift Dev Spaces Deployment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Now that we have explored how the core components are running to support our lab, let us explore how RH OpenShift Dev Spaces is made available to users. 
