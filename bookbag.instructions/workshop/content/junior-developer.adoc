@@ -21,7 +21,7 @@ Let's go! +
 
 NOTE: You can safely ignore any warnings about missing SSH keys, access tokens or otherwise a need to add authentication mechanisms. This has all been taken care of by the OAuth integration mentioned earlier, and you will get to see how this just works without adding any user specific configurations manually. Feel free to close these pop-ups to avoid seeing them.
 
-image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-sso-login.png[alt="OpenShift Overview",width=250,height=250,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-sso-login.png]
+image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-sso-login.png[alt="OpenShift Overview",width=550,height=250,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-sso-login.png]
 
 GitLab URL:
 https://gitlab.apps.{openshift_cluster_ingress_domain}}
@@ -29,7 +29,7 @@ https://gitlab.apps.{openshift_cluster_ingress_domain}}
 [start=2]
 . Click the `Explore public projects` box towards the bottom left, then navigate to "Explore >> All" in the top menu system.
 
-image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-explore-projects.png[alt="OpenShift Overview",width=250,height=250,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-explore-projects.png]
+image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-explore-projects.png[alt="OpenShift Overview",width=750,height=250,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-explore-projects.png]
 
 [start=3]
 . Next look for the project that is named "Administrator / guestbook". Click this line to enter into this project. 
@@ -39,12 +39,12 @@ image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/boo
 [start=4]
 . This is where you make a fork of the project. Click on the "Fork" button at the top right corner. 
 
-image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-fork-button.png[alt="OpenShift Overview",width=250,height=250,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-fork-button.png]
+image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-fork-button.png[alt="OpenShift Overview",width=1000,height=250,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-fork-button.png]
 
 [start=5]
 . On the next screen leave everything as pre-populated, with the exception of the `Select a namespace` drop-down - click this, and select your username from the drop-down. Then click the `Fork project` button and wait for the process to complete.
 
-image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-fork-guestbook.png[alt="OpenShift Overview",width=250,height=250,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-fork-guestbook.png]
+image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-fork-guestbook.png[alt="OpenShift Overview",width=1000,height=250,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-fork-guestbook.png]
 
 [start=6]
 . The screen show now have advanced to your fork of the repositoty. This can be validated by looking at the URL in the browser - the end of the URL should read `<username>/guestbook` where `<username>` is your SSO username.  +
@@ -80,26 +80,26 @@ image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/boo
 [start=2]
 . Next, make sure you completed the steps above to create a fork of the upstream guestbook application. Then enter the URL you grabbed in the last step of the forking process into the "Import from Git" / "Git Repo URL" box. Then click the `Create & Open` button.
 
-image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-create-and-open.png[alt="OpenShift Overview",width=250,height=150,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-create-and-open.png]
+image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-create-and-open.png[alt="OpenShift Overview",width=550,height=150,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-create-and-open.png]
 
 [start=3]
 . Wait for the workspace to start - this may take a minute or two.
 
-image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-wait-to-start.png[alt="OpenShift Overview",width=250,height=150,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-wait-to-start.png]
+image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-wait-to-start.png[alt="OpenShift Overview",width=850,height=150,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-wait-to-start.png]
 
 [start=4]
 . Welcome to RH OpenShift Dev Spaces! If you are seeing prompts to trust the author, etc. please click `Trust Workspace and Install` / `Yes, I trust the authors` and proceeed to you see an IDE like the screenshot below. 
 
 NOTE: You can choose either *accept* or *deny* for the analystics pop-up to help Red Hat improve the extensions - for this lab these data is not collected anyway. 
 
-image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-welcome.png[alt="OpenShift Overview",width=250,height=150,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-welcome.png]
+image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-welcome.png[alt="OpenShift Overview",width=1000,height=150,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-welcome.png]
 
 [start=5]
 . To better navigate the UI, we will install an extension to aid with running this application. We will cover more about extensions in the next chapter, but for now just click on the "Extensions" menun option in the left-hand side margin and search for "Task Manager" to install this extension from teh marketplace. Once found, click on the blue "Install" button and wait for the task to complete. You should now have a new left-hand side margin item at the bottom that is the "Task Manager". +
  +
 Feel free to close the "Extension: Task Manager" window that is visible in the middle of the screen. 
 
-image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-task-manager.png[alt="OpenShift Overview",width=250,height=150,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-task-manager.png]
+image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-task-manager.png[alt="OpenShift Overview",width=450,height=150,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-task-manager.png]
 
 NOTE: Any changes made in this runtime environment is automatically saved and persisted across restarts of *this* instance of the workspace. If you choose to delete the workspace these changes are lost, but permanent customizations can be added to the DevFile and other Workspaces config files - more on this later.
 
@@ -113,7 +113,7 @@ image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/boo
  +
 *Oh No!* The run resulted in an error!! Feel free to explore the error output more to figure out why. 
 
-image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-build-failure.png[alt="OpenShift Overview",width=250,height=250,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-build-failure.png]
+image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-build-failure.png[alt="OpenShift Overview",width=1000,height=250,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-build-failure.png]
 
 [start=8]
 . As you probably figured out, this problem is due to not having a MongoDB to connect to. Someone must have left this repository in a bad state after making some changes earlier. Let's add the DB - locally in the workspace - which means we are still just operating as if this was running locally on a laptop. +
@@ -153,7 +153,7 @@ Copy the below snippet and paste it into the `components` section, right before 
 
 The resulting file should look like the following screenshot. 
 
-image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-added-mongodb.png[alt="OpenShift Overview",width=150,height=350,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-added-mongodb.png]
+image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-added-mongodb.png[alt="OpenShift Overview",width=650,height=350,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-added-mongodb.png]
 
 [start=9]
 . With the change in place, it is time to push this change to our git repository so we can give it a try. +
@@ -177,12 +177,12 @@ For this next step, it is crucial to click on `guestbook` in the center "Workspa
  +
 Click the "Devfile" tab to see the active runtime devfile. Similar to how we added the mongodb to the permanent devfile, let's copy the above snippet and paste it here as well - right before the `commands` section. +
 
-image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-added-mongodb-inline.png[alt="OpenShift Overview",width=150,height=350,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-added-mongodb-inline.png]
+image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-added-mongodb-inline.png[alt="OpenShift Overview",width=1000,height=350,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-added-mongodb-inline.png]
 
 [start=11]
 . Click the blue "Save" button in the bottom right corner. This will present a prompt asking if you want to "Restart Workspace" - answer `Yes` to this prompt.
 
-image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-restart-workspace.png[alt="OpenShift Overview",width=150,height=350,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-restart-workspace.png]
+image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-restart-workspace.png[alt="OpenShift Overview",width=550,height=350,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-restart-workspace.png]
 
 [start=11]
 . Next click the `guestbook` link in the left-hand side menu to re-open the session - now with the new runtime changes.
@@ -193,11 +193,11 @@ image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/boo
 [start=13]
 . *Success* The Terminal is now just showing a few warnings, but otherwise also indicating that the app is listening on port 8080. Speaking of port 8080, there is a pop-up in the bottom right of the browser that is letting you know that there is a service listening on port 8080 and asking if you would like to open it - click the `Open in New Tab` blue button.
 
-image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-open-port-8080.png[alt="OpenShift Overview",width=150,height=350,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-open-port-8080.png]
+image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-open-port-8080.png[alt="OpenShift Overview",width=350,height=350,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-open-port-8080.png]
 
 As a good security measurement, it will double-check and ask if you want to open this link - for this purpose, we do trust it, so click the blue "Open" button.
 
-image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-port-8080-security.png[alt="OpenShift Overview",width=150,height=350,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-port-8080-security.png]
+image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-port-8080-security.png[alt="OpenShift Overview",width=450,height=350,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-port-8080-security.png]
 
 [start=14]
 . Congratulations - you now have a working guestbook application. Feel free to try it out and submit names and messages to your guestbook. +
