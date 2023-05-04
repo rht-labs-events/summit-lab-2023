@@ -24,7 +24,7 @@ NOTE: You can safely ignore any warnings about missing SSH keys, access tokens o
 image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-sso-login.png[alt="OpenShift Overview",width=550,height=250,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-sso-login.png]
 
 GitLab URL:
-https://gitlab.apps.{openshift_cluster_ingress_domain}}
+https://gitlab.apps.{openshift_cluster_ingress_domain}
 
 [start=2]
 . Click the `Explore public projects` box towards the bottom left, then navigate to "Explore >> All" in the top menu system.
@@ -90,7 +90,7 @@ image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/boo
 [start=4]
 . Welcome to RH OpenShift Dev Spaces! If you are seeing prompts to trust the author, etc. please click `Trust Workspace and Install` / `Yes, I trust the authors` and proceeed to you see an IDE like the screenshot below. 
 
-NOTE: You can choose either *accept* or *deny* for the analystics pop-up to help Red Hat improve the extensions - for this lab these data is not collected anyway. 
+NOTE: You can choose either *accept* or *deny* for the analystics pop-up to help Red Hat improve the extensions - for this lab these data are not collected anyway.
 
 image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-welcome.png[alt="OpenShift Overview",width=1000,height=150,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-welcome.png]
 
@@ -122,6 +122,8 @@ Click on the `Explorer` icon in the left-side margin menu to see the various fil
  +
 Click on the `devfile.yaml` file as this will bring it into the center view where we can start making changes. Explore the `components` section of this file, and right now you will see that we have a `nodejs` section (line 5) and `npm` volume section (line 23). This is where we need to add one more component. +
  +
+image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-select-devfile.png[alt="OpenShift Overview",width=1000,height=250,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-select-devfile.png]
+
 Copy the below snippet and paste it into the `components` section, right before line 26 / `commands`. 
 
 [source,yaml]]
