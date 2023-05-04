@@ -34,7 +34,7 @@ image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/boo
 [start=3]
 . Next look for the project that is named "Administrator / guestbook". Click this line to enter into this project. 
 
-image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-admin-guestbook.png[alt="OpenShift Overview",width=250,height=250,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-admin-guestbook.png]
+image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-admin-guestbook.png[alt="OpenShift Overview",width=1000,height=250,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-admin-guestbook.png]
 
 [start=4]
 . This is where you make a fork of the project. Click on the "Fork" button at the top right corner. 
@@ -51,7 +51,7 @@ image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/boo
 +
 While we are in this view, let's grab the URL to clone this repository for the next step - click on the blue `Clone` drop-down button and click the `Copy URL` button next to the "Clone with HTTPS" box.
 
-image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-clone-guestbook.png[alt="OpenShift Overview",width=250,height=250,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-clone-guestbook.png]
+image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-clone-guestbook.png[alt="OpenShift Overview",width=850,height=250,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-clone-guestbook.png]
 
 
 ===== DONE
@@ -106,7 +106,7 @@ NOTE: Any changes made in this runtime environment is automatically saved and pe
 [start=6]
 . Click on the "Task Manager" and choose the `Build and Run the application` under `devfile` at the top, then click the "play" symbol to the right of the line.
 
-image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-build-and-run.png[alt="OpenShift Overview",width=250,height=150,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-build-and-run.png]
+image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-build-and-run.png[alt="OpenShift Overview",width=450,height=150,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-build-and-run.png]
 
 [start=7]
 . This will bring up a Terminal output window at the bottom of the browser view - including a few other tabs, such as "Problems", "Output", "Debug Console". +
