@@ -330,5 +330,5 @@ This concludes the `Junior Developer` exercise. To recap, here are a few things 
 
 We truly hope you enjoyed this exercise. Now on to the `Advanced Developer` exercise, where things will be harder and not as thoroughly explained as it was for the `Junior Developer` Exercise. 
 
-*TIP:* Keep the `Junior Exercise` open in a separate tab to jump back here for guidance - if needed. 
+*TIP:* Keep the `Junior Developer` Exercise open in a separate tab to jump back here for guidance - if needed. 
 
