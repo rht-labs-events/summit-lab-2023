@@ -2,8 +2,8 @@
 
 One of the goals of this lab is to demonstrate how everything is done through the modern web browser. This means that the developers computer does not need to be tweaked or configured beyond having a working browser that can connect to corporate services. Many of you may be used to accessing "the terminal" natively on your machine to do work - no more. In this lab we will see how the RH OpenShift Dev Spaces environment provides the necssary tools, including terminals, to get the job done.
 
-Launching RH OpenShift Dev Spaces
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+=== Launching RH OpenShift Dev Spaces
+
 
 Up to this point, we were exploring the environment with the System Administrator lense on - seeing how the core components were deployed to support the need of our developers. It is now time to switch roles and become the developer that will use the environment.
 
@@ -27,13 +27,19 @@ Congratulation & Welcome to RH OpenShift Dev Spaces - when you see the screen as
 image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-create-workspace.png[alt="OpenShift Overview",width=750,height=750,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-create-workspace.png]
 
 
-Introduction to DevFiles
-^^^^^^^^^^^^^^^^^^^^^^^^
+=== Introduction to Devfiles
 
-The purpose of DevFiles ... blah bla
+The purpose of a `Devfile``, in a simplistic view, is a runtime customization, or configuraiton file, for a RH OpenShift Dev Spaces workspace. This file defines what the containerized workspace deployment will contain when it is launched - or what `components` the workspace contains to use the Devfile language. +
+ +
+Specifically, one example of a `component` is what container image to use - where to source it from and what version of the image to run. Note that virtually any container image can be used as an image in a RH OpenShift Dev Spaces workspace, and for the container `component`, the Devfile further more defines runtime specific parameters - just like is done for standard OpenShift or kubernetes type of container deployments. This includes, but is not limited to, environment variables, listening ports, memory/cpu limits, volume mounts, etc. +
+ +
+The Devfile also contains `commands` - these are any sort of repeatable tasks you would want to make available in the workspace, such as build & run commands, that the user of the workspace can quickly launch. By having these defined with the proper parameters, etc. means that the developer doesn't need to memorize or look-up complex commands for how to compile and launch the application(s) associated with this workspace. +
++ 
+The above mentioned content is just a few examples of what a `Devfile` may contain, and throughout the upcoming exercises you will get to experience these and other capabilities. For more Devfile details, check out https://devfile.io[devfile.io].
 
-Big Picture - Applications
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+=== Big Picture - Applications
+
 
 Now that we have a working RH OpenShift Dev Spaces environment, let's cycle back to the Big Picture to see what the next steps are. In this case we will use the Big Picture to show the future state of what we will deploy in the following exercises. 
 
