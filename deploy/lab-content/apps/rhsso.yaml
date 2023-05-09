@@ -19,7 +19,7 @@ spec:
     targetRevision: main
   syncPolicy:
     automated:
-      prune: true
+      prune: false
       selfHeal: true
     managedNamespaceMetadata:
       labels:
