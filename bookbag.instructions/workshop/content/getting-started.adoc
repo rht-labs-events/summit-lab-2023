@@ -1,54 +1,54 @@
 :openshift_cluster_ingress_domain: %openshift_cluster_ingress_domain%
 
-One of the goals of this lab is to demonstrate how everything is done through the modern web browser. This means that the developers computer does not need to be tweaked or configured beyond having a working browser that can connect to corporate services. Many of you may be used to accessing "the terminal" natively on your machine to do work - no more. In this lab we will see how the RH OpenShift Dev Spaces environment provides the necssary tools, including terminals, to get the job done.
+One of the goals of this lab is to demonstrate how everything is done through the modern web browser. This means that the developers computer does not need to be tweaked or configured beyond having a working browser that can connect to corporate services. Many of you may be used to accessing "the terminal" natively on your machine to do work - no more. In this lab, we will see how an Red Hat OpenShift Dev Spaces environment provides the necessary tools, including terminals, to get the job done.
 
-=== Launching RH OpenShift Dev Spaces
+=== Launching Red Hat OpenShift Dev Spaces
 
 
 Up to this point, we were exploring the environment with the System Administrator lense on - seeing how the core components were deployed to support the need of our developers. It is now time to switch roles and become the developer that will use the environment.
 
-Let us start by navigating to the RH OpenShift Dev Spaces environment in the browser on this computer. Click the link below: +
+Let us start by navigating to the Red Hat OpenShift Dev Spaces environment in the browser on this computer. Click the link below: +
 https://devspaces.{openshift_cluster_ingress_domain}
 
 Click the "Log in with OpenShift" button (screenshot below)
 
 image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-login-with-openshift.png[alt="OpenShift Overview",width=250,height=250,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-login-with-openshift.png]
 
-Click on the `RH SSO` option for authentication, and, if prompted, enter your `username` and `password` that were provided to you at the very beginning of this session.
+Click on the `rhsso` option for authentication, and, if prompted, enter your `username` and `password` that were provided to you at the very beginning of this session.
 
 image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/sso-login.png[alt="OpenShift Overview",width=250,height=250,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/sso-login.png]
 
-The very first time you login as a new user to RH OpenShift Dev Spaces, it will prompt you for permission to access your account. Make sure the requested permissions checkbox is checked/enabled, and click `Allow slected permissions`.
+The very first time you login as a new user to Red Hat OpenShift Dev Spaces, it will prompt you for permission to access your account. Make sure the requested permissions checkbox is checked/enabled, and click `Allow selected permissions`.
 
 image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-permission-prompt.png[alt="OpenShift Overview",width=750,height=750,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-permission-prompt.png]
 
-Congratulation & Welcome to RH OpenShift Dev Spaces - when you see the screen as shown below you have successfully logged in.
+Congratulation & Welcome to Red Hat OpenShift Dev Spaces - when you see the screen as shown below you have successfully logged in.
 
 image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-create-workspace.png[alt="OpenShift Overview",width=750,height=750,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-create-workspace.png]
 
 
 === Introduction to Devfiles
 
-The purpose of a `Devfile`, in a simplistic view, can be thought of as a runtime customization, or configuration file, for a RH OpenShift Dev Spaces workspace. This file defines what the containerized workspace deployment will contain when it is launched - or what `components` the workspace contains. +
+The purpose of a `Devfile`, in a simplistic view, is that it can be thought of as a runtime customization, or configuration file, for a Red Hat OpenShift Dev Spaces workspace. This file defines what the containerized workspace deployment will contain when it is launched - or what `components` the workspace contains. +
  +
-Think of how you prepare your local computer for development: You have to consider what packages to install, what development languages to make available and how to configure your runtime environments, etc. - and in many cases your laptop may be somewhat locked in on those versions until you decide to "upgrade", or otherwise perhaps use another type of virtual environment. +
+Think of how you prepare your local computer for development: You have to consider what packages to install, what development languages to make available, and how to configure your runtime environments, etc. - and in many cases, your laptop may be somewhat locked in on those versions until you decide to "upgrade", or otherwise perhaps, use another type of virtual environment. +
  +
-For RH OpenShift Dev Spaces, all of this is defined in the `Devfile` which you use to launch your development environment in a quick and consistent way - and - it allows the entire team to have a consistent experience to avoid the local laptop configuration drift, or otherwise inconsistent environments. No more "it worked on my machine!" +
+For Red Hat OpenShift Dev Spaces, all of this is defined in the `Devfile` which you use to launch your development environment in a quick and consistent way - and - it allows the entire team to have a consistent experience and avoid the local laptop configuration drift, or otherwise inconsistent environments. No more "it worked on my machine!" +
  +
-One example of a `component` in the `Devfile` is what container image(s) to use - where to source it from and what version of the image to run. Note that virtually any container image can be used as an image in a RH OpenShift Dev Spaces workspace, and for the container `component` type, the Devfile further more defines runtime specific parameters - just like is done for standard OpenShift or kubernetes type of container deployments. This includes, but is not limited to, environment variables, listening ports, memory/cpu limits, volume mounts, etc. +
+One example of a `component` in the `Devfile` is what container image(s) to use - where to source it from and what version of the image to run. Note that virtually any container image can be used as an image in a Red Hat OpenShift Dev Spaces workspace, and for the container `component` type, the Devfile further more defines runtime specific parameters - just like is done for standard OpenShift or Kubernetes type of container deployments. This includes, but is not limited to, environment variables, listening ports, memory/cpu limits, volume mounts, etc. +
  +
-The Devfile also contains `commands` - these are any sort of repeatable tasks you would want to make available in the workspace, such as build & execute commands that the user of the workspace can quickly launch. By having these defined with the proper parameters, etc., the developer can run them with a click of a button, and there is no need to memorize, or look-up, complex commands for how to compile and launch the application(s) associated with this workspace. +
+The Devfile also contains `commands` - these are any sort of repeatable tasks you would want to make available in the workspace, such as _build_ & _execute_ commands that the user of the workspace can quickly launch. By having these defined with the proper parameters, etc., the developer can run them with a click of a button, and there is no need to memorize, or look-up, complex commands for how to compile and launch the application(s) associated with this workspace. +
 + 
-The above mentioned content is just a few examples of what a `Devfile` may contain, and throughout the upcoming exercises you will get to experience these and other capabilities first hand. For more Devfile details, check out https://devfile.io[devfile.io].
+These are just a few examples of what a `Devfile` may contain, and throughout the upcoming exercises, you will get to experience them first hand along with an array of capabilities. For more Devfile details, check out https://devfile.io[devfile.io].
 
 
 === Big Picture - Applications
 
 
-Now that we have a working RH OpenShift Dev Spaces environment, let's cycle back to the Big Picture to see what the next steps are. In this case we will use the Big Picture to show the future state of what we will deploy in the following exercises. 
+Now that we have a working Red Hat OpenShift Dev Spaces environment, let's cycle back to the Big Picture to see what the next steps are. In this case we will use the Big Picture to show the future state of what we will deploy in the following exercises. 
 
 image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/bigpicture-applications.jpg[alt="Big Picture - Scaffolding",width=750,height=750,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/bigpicture-applications.jpg]
 
-Towards the bottom, we now have two user workspaces filled in with the application technologies. One with node.js and mongodb - this is our "Junior Developer environment, and the other is the "Advanced Developer" working on a soution including the use of Quarkus.
+Towards the bottom, we now have two user workspaces filled in with the application technologies. One with node.js and mongodb - this is our "Junior Developer" environment, and the other is the "Advanced Developer", working on a solution including the use of https://quarkus.io[Quarkus].
 
 Let's start as a junior developer, and deploy a basic application that needs a few extra components to work.
