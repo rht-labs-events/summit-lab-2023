@@ -1,5 +1,17 @@
 
-Bonus
------
+Good job getting through the previous exercises. Hope you enjoyed learning about how you can get started with Red Hat OpenShift Dev Spaces in your environment. How you can quickly advance from the beginners level to truly becoming an advanced user that radiates new knowledge to the rest of your team, allowing the entire development team to excel quickly.
 
-This is where the *bonus* section goes ...
+This bonus chapter has no prescribed content, but you are free to continue exploring the environment and to try out the various features on your own. Perhaps you already have a public git repo that you may want to set up in Red Hat OpenShift Dev Spaces to see how easily it can be done?
+
+*Here are a few ideas that you may want to explore further:*
+
+ - Explore the extensive list of extensions to try out additional integrations?
+ - Connect with your own public git repository (github.com)
+ 
+NOTE: You will need to supply your own credentials for anything that requires write-permissions to public repositories - do so at your own risk!
+ 
+ - Extend a `devfile` with additional components and commands. 
+ - Explore and extend some of the sample workspaces provided by Red Hat OpenShift Dev Spaces
+ - Switch to JetBrains IntelliJ as an IDEA (available as a *Technology Preview*)
+
+

@@ -51,7 +51,7 @@ subjects:
   kind: User
   name: user${i}
 ---
-kind: RoleBinding
+kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: cluster-reader-user-${i}
@@ -62,6 +62,6 @@ roleRef:
 subjects:
   - kind: User
     apiGroup: rbac.authorization.k8s.io
-    name: user{i}
+    name: user${i}
 EOF
 done
