@@ -1,13 +1,13 @@
 :openshift_cluster_ingress_domain: %openshift_cluster_ingress_domain%
 :highlightjs-languages: yaml
 
-In this excersise things will get a bit harder - welcome to the `Advanced Developer` part of the lab.
+In this exercise, things will get a bit harder - welcome to the `Advanced Developer` part of the lab.
 
 You will now get to see how you can easily switch to work on additional projects without loosing your previous environment. Furthermore, this exercise will demonstrate how you can work on multiple microservices within one workspace.
 
 The application we will target for this exercise is a greenfield application with the following components:
 
-  - frontend - javascript based UI
+  - frontend - a javascript based UI
   - backend - a quarkus based implementation 
   - main - documentation and glue-code, including a DevFile
 
@@ -15,7 +15,7 @@ The application already has some existing code that we will use as a starting po
 
 Let's start.
 
-=== Forking the repos
+=== Forking the repository
 
 [start=1]
 . Start by forking the necessary repositories used for this application to make them "your own" - just like you did in the `Junior Developer` exercise. If you don't remember how to do the forking steps, please re-visit the previous exercise to get the steps. +
@@ -33,15 +33,17 @@ The 3 repos to fork over to your own user account are:
 ... where `<user>` is your username.
 
 [start=3]
-. Since this is a lab environment, and we don't want to cause conflicts for other participants, there is one extra step we need to perform before launching RH OpenShift Dev Spaces: We need to update the URLs in the DevFile to point to our newly forked repositories so we have the proper permissions to work on the upcoming changes. +
+. Since this is a lab environment, and we don't want to cause conflicts for other participants, there is one extra step we need to perform before launching Red Hat OpenShift Dev Spaces: We need to update the URLs in the Devfile to point to our newly forked repositories so we have the proper permissions to work on the upcoming changes. +
  +
 We will use GitLab to perform this change. While making direct changes within the source repository like this may not be an ideal way to work, it works well for a lab like this, and this will be the only time we do it as part of this lab. +
  +
-Navigate to the `widget-main` application that belongs to your user, then click on the drop-down next to the "Open in Web IDE" blue button and choose `Edit`. 
+Navigate to the **widget-main** repository that belongs to your user, then click on the **devfile.yaml** file.
+ +
+Click on the drop-down next to the _Open in Web IDE_ blue button and choose **Edit**. 
 
 image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-edit-devfile.png[alt="OpenShift Overview",width=1000,height=250,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-edit-devfile.png]
 
-NOTE: you may have to click `Edit` a second time to actually enter the editing mode 
+NOTE: you may have to click **Edit** a second time to actually enter the editing mode 
 
 [start=4]
 . Substitute the `projects` URLs (`remotes: origin`) with the following - replacing `<username>` with your SSO username
@@ -49,25 +51,26 @@ NOTE: you may have to click `Edit` a second time to actually enter the editing m
   - <widget-frontend-url> => https://gitlab.{openshift_cluster_ingress_domain}/<username>/widget-frontend.git
   - <widget-backend-url> => https://gitlab.{openshift_cluster_ingress_domain}/<username>/widget-backend.git
 
-Next, click on the blue `Commit changes` at the bottom of the screen.
+Next, click on the blue **Commit changes** at the bottom of the screen.
 
-You are now ready to proceed to the next steps to work on this application within RH OpenShift Dev Spaces. 
-
+You are now ready to proceed to the next steps to work on this application within Red Hat OpenShift Dev Spaces. 
 
 === Launching a new workpace
 
-As you saw in the DevFile, this application contains multiple "projects", which points to 3 different source repositories. The beauty of having this in the DevFile is that we can point RH OpenShift Dev Spaces to the repository containing this DevFile and it will load up all these dependencies into the one workspace so we can work on these seamlessly.
+As you saw in the Devfile, this application contains multiple "projects", which points to 3 different source repositories. The beauty of having this in the Devfile is that we can point Red Hat OpenShift Dev Spaces to the repository containing this Devfile and it will load up all these dependencies into the one workspace so we can work on these seamlessly.
 
 [start=1]
-. Navigate to the RH OpenShift Dev Spaces dashboard to create a new application, click on `Create Workspace` and enter the GitLab URL of *your fork* of `widget-main`, i.e.: https://gitlab.{openshift_cluster_ingress_domain}/<username>/widget-main.git. Then click `Create & Open`. 
+. Navigate to the Red Hat OpenShift Dev Spaces dashboard to create a new application, click on **Create Workspace** button on the lefthand side and enter the GitLab URL of *your fork* of `widget-main`, i.e.: https://gitlab.{openshift_cluster_ingress_domain}/<username>/widget-main.git. Then click **Create & Open**. 
 
 [start=2]
-. Since the `guestbook` workspace is still running, and this environment is configured to only allow each user to have one active workspace at a time (to save cost of a running development environment), it will show a warning stating that you have an active running workspace, and gives you the choice to `Close running workspace (guestbook) and restart deep-thoughts` or `Switch to running workspace (guest) to save any changes`. In this case we are done with the previous exercise, and can safely choose the former to close the existing workspace and restart this new one. 
+. Since the `guestbook` workspace is still running, and this environment is configured to only allow each user to have one active workspace at a time (to save cost of a running development environment), it will show a warning stating that you have an active running workspace, and gives you the choice to `Close running workspace (guestbook) and restart deep-thoughts` or `Switch to running workspace (guest) to save any changes`. In this case we are done with the previous exercise, and can safely choose the **Close running workspace (guestbook) and restart deep-thoughts** to close the existing workspace and restart this new one.
++
+NOTE: When the new workspace opens, you may once again receive a prompt related to workspace trust. Please click **Trust Workspace and Install** / **Yes, I trust the author** as was performed in the _Junior Developer_ section.
 
 [start=3]
-. Being that this application environment is more advanced, it introduces a new feature that wasn't present for the `Junior Developer` exercise - including a `code-workspace` file. This is a file used to modify the actual IDE environment. While the `DevFile` is used to gain access to the various components, commands, etc. needed, the `code-workspace` is a file that is used to modify the VS Code environment to our liking. +
+. Being that this application environment is more advanced, it introduces a new feature that wasn't present for the _Junior Developer_ exercise - including a `code-workspace` file. This is a file used to modify the actual IDE environment. While the `Devfile` is used to gain access to the various components, commands, etc. needed, the `code-workspace` is a file that is used to modify the Visual Studio Code environment to our liking. +
  +
-You may have noticed a pop-up at the bottom right with a blue button `Open Workspace`. If this button is still present, click it. If the pop-up is no longer there, please click on the `deep-thoughts.code-workspace` file in the `Explorer` view and the blue button should again appear in the bottom right corner. +
+You may have noticed a pop-up at the bottom right with a blue button `Open Workspace`. If this button is still present, click **Open Workspace**. If the pop-up is no longer present, please click on the `deep-thoughts.code-workspace` file in the `Explorer` view and the blue button should again appear in the bottom right corner. +
  +
 Explore the content of this file to see how the following is specified to customize the environment by default. Recall how some of this was done manually in the previous exercise, i.e.: `extensions`:
   - folders
@@ -75,10 +78,10 @@ Explore the content of this file to see how the following is specified to custom
   - settings
 
 [start=4]
-. Navigate back to the `Explorer` view, you should now see all 3 repositories listed within the project - which we will get back to in a minute. 
+. Navigate back to the **Explorer** view, you should now see all 3 repositories listed within the project - which we will get back to in a minute. 
 
 [start=5]
-. Navigating to the `Extensions` left-hand side menu, you can also explore and see that the extensions listed in the `code-workspace` file have been installed and are ready for use. 
+. Navigating to the *Extensions** left-hand side menu, you can also explore and see that the extensions listed in the `code-workspace` file have been installed and are ready for use. 
 
 [start=6]
 . Notice also how the theme changed to a white / winter look and feel. 
@@ -86,12 +89,12 @@ Explore the content of this file to see how the following is specified to custom
 
 === Making changes to the application
 
-Equipped with a working RH OpenShift Dev Spaces environment, tailored to our liking, we are now ready to start working on changing the code of this micro-services application. Again, as a reminder, our task to day is to find places where we need to update/change the names of this application to "Deep Thoughts" to have it properly displayed in the running application. 
+Equipped with a working Red Hat OpenShift Dev Spaces environment, tailored to our liking, we are now ready to start working on changing the code of this micro-services application. Again, as a reminder, our task today is to find places where we need to update/change the names of this application to "Deep Thoughts" to have it properly displayed in the running application. 
 
 [start=1]
 . The first step is often to figure out how to run, or start, the application so we can observe the changes we are making. +
  +
-Navigate to the `Task Manager`. Recognize how these many commands listed here are coming from the `DevFile` we explored earlier. +
+Navigate to the **Task Manager**. Recognize that these commands listed here are coming from the `Devfile` we explored earlier. +
  +
 Execute the following tasks:
  a. `widget-main >> devfile >> Copy Kubeconfig` - this will copy the kubeconfig file that was automatically injected into the workspace and copy it to the other containers that needs it.
@@ -102,38 +105,38 @@ Execute the following tasks:
 [start=2]
 . Once the pop-up is presented to open port 8080 for the quarkus backend, click on the blue `Open in New Tab` button. (ignore the 5005 pop-up) +
  + 
-The page that opens will show a `404` page, but don't worry - this is actually a good sign for this type of deployment as it's just indicating that no application is deployed at the  root conext of quarkus. What it also provides you is a list of additional endpoints that *are* available. +
+The page that opens will show a `404` page, but don't worry - this is actually a good sign for this type of deployment as it's just indicating that no application is deployed at the root context of the quarkus application. What it also provides you is a list of additional endpoints that *are* available. +
  +
 Click on the `/q/health-ui` to verify that the database is operational - it should show a green symbol at top, and indicate *UP*.
 
 [start=3]
-. Navigate back to the workspace tab +
+. Navigate back to the workspace tab in your browser +
  +
-Back in the "Task Manager" click `widget-main >> devfile >> Start NodeJS Development mode` to start the frontend application. Since the npm install was done earlier, this step should now be quite fast, and a new pop-up should be present in the bottom-right corner, letting you know that a new process is listening on port 4200 - click on `Open In New Tab`, followed by `Open` on the next pop-up in the middle of the screen. +
+Back in the "Task Manager" click `widget-main >> devfile >> Start NodeJS Development mode` to start the frontend application. Since the `npm install` task was executed previously, this step should now be quite fast, and a new pop-up should be present in the bottom-right corner, letting you know that a new process is listening on port 4200 - click on **Open In New Tab**, followed by **Open** on the next pop-up in the middle of the screen. +
  +
 This opens a new tab with a UI showing "Random Thoughts" (*Hint:* this may be one of the titles we need to change to "Deep Thoughts"). +
  +
-Just to make sure everything works, enter in some data into the "Random Thought" box and click "Submit", then click the "Get Random Thoughts" button towards the top of the page to see your data returned to you. 
+Just to make sure everything works, enter in some data into the "Random Thought" box and click **Submit**, then click the **Get Random Thoughts** button towards the top of the page to see your data returned to you. 
 
 [start=4]
-. Now that we have working application, let's look to make some of the naming changes. +
+. Now that we have working application, let's look to make some of the naming changes starting with the title of the frontend application webpage. +
  + 
-Click on the `Explorer` button in the left-hand side menu, and navigate to the `widget-frontend >> src` to start looking for the places to make changes. If you are familar with JavaScript and Frontend development, this may be easy. If you are not, we suggest looking at the `index.html` file to see if you can find the `<title>` line. +
+Click on the **Explorer** button in the left-hand side menu, and navigate to `widget-frontend >> src` to start looking for the places to make changes. If you are familiar with JavaScript and frontend development, this may be easy. If you are not, we suggest looking at the `index.html` file to see if you can find the `<title>` line. +
  +
-Once you have edited that line, the IDE running in a workspace actually auto-saves the file for you, and by navigating back to the frontend tab all you have to do is to refresh that view and you will see a new title on the open tab. +
+Once you have edited that line, the IDE running in a workspace actually auto-saves the file for you, and by navigating back to the frontend tab all you have to do is to refresh the page to see the updated title reflected. +
  +
-The title of the tab is interesting, but let also update the heading on the page itself. +
+The title of the tab is a start, but let also update the heading on the page itself. +
  +
 Explore the source code within the frontend to find the "Random Thoughts" heading on the page. Change it from "Random Thoughts" to "Deep Thoughts". *Hint:* Look in `widget-frontend >> src >> app >> app.components.ts`. +
  + 
-Again, navigate back to the tab with the frontend. Observe that this automatically updated and we didn't need to even refresh the page. 
+Again, navigate back to the tab with the frontend. Observe that this time, the page automatically updated and we didn't need to even refresh the page. 
 
 [start=5]
-. So far we have altered the frontend, but let us also make changes to the backend to brand it with "Deep Thoughts". +
+. So far, we have altered the frontend, but let us also make changes to the backend to brand it with "Deep Thoughts". +
  + 
 Navigate back to the `Explorer` view, and this time expand the `widget-backend` folder, and open the `RandomThoughts.java` file to make backend changes. +
  +
-*Hint:*  File located at `widget-backend >> src >> main >> java >> fun >> is >> quarkus >> randomThoughts >> service`
+*Hint:*  File is located at `widget-backend >> src >> main >> java >> fun >> is >> quarkus >> randomThoughts >> service`
 
 [start=6]
 . Change line 25, from:
@@ -149,28 +152,30 @@ Navigate back to the `Explorer` view, and this time expand the `widget-backend` 
  RandomThoughtDto thought = new RandomThoughtDto(UUID.randomUUID(), modifiedThought);
 ----
 
+Save the file to apply the change to the backend.
+
 [start=7]
-. Navigate back to the tab with the frontend, and submit a new thought in the box, click `Submit` followed by `Get Random Thoughts`. +
+. Navigate back to the tab with the frontend, and submit a new thought in the box, click **Submit** followed by selecting the **Get Random Thoughts** button. +
  + 
-Observe that the newly entered input how is prefixed with the "A deep thought: " string. 
+Observe that the newly entered input is prefixed with the "A deep thought: " string. 
 
 === Committing the changes to git
 
-The changes made to the source code are proven to be working, so next step is to make it permanent within the git repostory for other users to adopt these changes into their work. 
+The changes made to the source code are proven to be working locally, so next step is to make it permanent within the git repository for other users to adopt these changes into their work. 
 
 [start=1]
 . Back in the workspaces view in the browser, use a keyboard short-cut of `Ctrl+Shift+`` to open a new Terminal (alternatively, follow the steps from the `Junior Developer` exercise to open a new Terminal). You will be presented with 3 working directories to start in - choose to open the `widget-frontend` to work on committing that code. +
  +
-*NOTE:* As you saw in the `Junior Developer` exercise you can also do this with the UI approach (`Source Code` in the left-hand side menu)), but the aim of this `Advanced Developer` exercise is to demonstrate how it can be done from a Terminal. 
+*NOTE:* As you saw in the `Junior Developer` exercise, you can perform this task all within the UI (`Source Code` in the left-hand side menu)), but the aim of this `Advanced Developer` exercise is to demonstrate how it can be done from a Terminal. 
 
 [start=2]
 . Use the following git commands to commit the code: 
- a. `git status` << shows you what files are about to be committed
- b. `get checkout -b deep-thought-rename` << creates a new branch with these changes 
- c. `git add .` << queues up the files to be commited
- d. `git commit -m "Changed name to deep thoughts"`` << Commits the files and provides a descriptive message
+ a. `git status` << shows you what` files are about to be committed
+ b. `git checkout -b deep-thought-rename` << creates a new branch with these changes 
+ c. `git add .` << queues up the files to be committed to the staging area
+ d. `git commit -m "Changed name to deep thoughts"` << Commits the files and provides a descriptive message
  e. `git push -u origin deep-thought-rename` << Pushes the changes to the upstream git repositry in GitLab
- f. `Ctrl + click` on the link provided in the output to GitLab to create a new Merge Request (MR). Click the blue `Open` button.
+ f. `Ctrl + click` on the link provided in the terminal output of the previous command to create a new Merge Request (MR) on GitLab. Click the blue `Open` button.
 
 [start=3]
 . In GitLab - follow the UI prompts to create the Merge Request for your changes. 
@@ -185,7 +190,7 @@ This concludes the `Advanced Developer` exercise. To recap, here are a few thing
   - Using the VS Code IDE to make source code changes and observe the changes in real-time.
   - Using the built-in Terminal to interact with git and create Merge Requests.
 
-We hope this have provided you with a good understanding of what RH OpenShift Dev Spaces can provide for developers of all skills and knowledge levels. 
+We hope that this lab has provided you with a good understanding of what Red Hat OpenShift Dev Spaces can provide for developers of all skills and knowledge levels. 
 
 If you have time left, feel free to move on to the `Bonus` lab to explore more on your own. 
 
