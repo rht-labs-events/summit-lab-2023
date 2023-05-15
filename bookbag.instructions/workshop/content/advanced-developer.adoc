@@ -145,7 +145,7 @@ Navigate back to the `Explorer` view, and this time expand the `widget-backend` 
 ----
  RandomThoughtDto thought = new RandomThoughtDto(UUID.randomUUID(), dto.randomThought());
 ----
-  to:
+to:
 [source,java]
 ----
  String modifiedThought = "A deep thought: " + dto.randomThought();
