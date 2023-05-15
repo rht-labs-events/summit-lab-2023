@@ -15,7 +15,7 @@ The application already has some existing code that we will use as a starting po
 
 Let's start.
 
-=== Forking the repository
+=== Forking the repositories
 
 [start=1]
 . Start by forking the necessary repositories used for this application to make them "your own" - just like you did in the `Junior Developer` exercise. If you don't remember how to do the forking steps, please re-visit the previous exercise to get the steps. +
