@@ -9,7 +9,7 @@
 
 *_Start Coding on Kubernetes.* Red Hat OpenShift Dev Spaces is a collaborative Kubernetes-native solution for rapid application development that delivers consistent developer environments on Red Hat OpenShift to allow anyone with a browser to contribute code in under two minutes_
 
-_The OpenShift-native developer workspace server and IDE. Built on the open Eclipse Che project, Red Hat OpenShift Dev Spaces uses Kubernetes and containers to provide any member of the development or IT team with a consisten, secure, and zero-configuration development environmwent._
+_The OpenShift-native developer workspace server and IDE. Built on the open Eclipse Che project, Red Hat OpenShift Dev Spaces uses Kubernetes and containers to provide any member of the development or IT team with a consistent, secure, and zero-configuration development environment._
 
 _The experience is as fast and familiar as an integrated development environment on your laptop._
 
@@ -21,13 +21,13 @@ _OpenShift Dev Spaces is included with your OpenShift subscription and is availa
 
 ==== The Goal of this Lab
 
-Our goal with this lab is to help you as the participant better understand how RH OpenShift Dev Spaces can potential help improve the developer experience in your Enterprise - which in turn can help drive better business value as a whole. 
+Our goal with this lab is to help you as the participant better understand how Red Hat OpenShift Dev Spaces can potential help improve the developer experience in your Enterprise - which in turn can help drive better business value as a whole. 
 
-Some of the main problem areas we often hear about from our customers is when the laptop/PC environments are very locked down and it is tough to get the right tooling installed and managed, or - as a developer - it takes a lot of time getting everything stood up just right in the local environment. As a development team, this may include a variety of package management, runtime versions, and programming language versions on laptops/desktops or other local environments. This team and individuals have most likely had conversations around "the must be a better way" to manage all of this, and automation, or shell scripts, may have come up as way to solve this - but that in itself may also just present a lot of overhead to maintain. 
+Some of the main problem areas we often hear about from our customers is when the laptop/PC environments are very locked down and it is tough to get the right tooling installed and managed, or - as a developer - it takes a lot of time getting everything stood up just right in the local environment. As a development team, this may include a variety of package management, runtime versions, and programming language versions on laptops/desktops or other local environments. This team and individuals have most likely had conversations around "there must be a better way" to manage all of this, and automation, or shell scripts, may have come up as way to solve this - but that in itself may also just present a lot or overhead to maintain. 
 
-This is exactly the type of problem space RH OpenShift Dev Spaces lives in and is attempting to help solve. During this lab, we will give you a taste of how this works, and show you some different ways RH OpenShift Dev Spaces can be used to solve issues around kustomization but also standarizing and normalizing of the local workstation experience.
+This is exactly the type of problem space Red Hat OpenShift Dev Spaces lives in and is attempting to help solve. During this lab, we will give you a taste of how this works, and show you some different ways Red Hat OpenShift Dev Spaces can be used to solve issues around customization but also standardizing and normalizing of the local workstation experience.
 
-We hope you enjoy the lab, and learn a lot from going through the exercises - and, remember, RH OpenShift Dev Spaces is included with your OpenShift Subscription!
+We hope you enjoy the lab, and learn a lot from going through the exercises - and, remember, Red Hat OpenShift Dev Spaces is included with a OpenShift Subscription!
 
 Thank you!
 
