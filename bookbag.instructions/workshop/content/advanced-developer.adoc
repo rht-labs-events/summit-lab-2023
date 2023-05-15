@@ -3,7 +3,7 @@
 
 In this exercise, things will get a bit harder - welcome to the `Advanced Developer` part of the lab.
 
-You will now get to see how you can easily switch to work on additional projects without loosing your previous environment. Furthermore, this exercise will demonstrate how you can work on multiple microservices within one workspace.
+You will now get to see how you can easily switch to work on additional projects without losing your previous environment. Furthermore, this exercise will demonstrate how you can work on multiple microservices within one workspace.
 
 The application we will target for this exercise is a greenfield application with the following components:
 
@@ -18,7 +18,7 @@ Let's start.
 === Forking the repositories
 
 [start=1]
-. Start by forking the necessary repositories used for this application to make them "your own" - just like you did in the `Junior Developer` exercise. If you don't remember how to do the forking steps, please re-visit the previous exercise to get the steps. The difference here is that the application is based on multiple services to operate correctly - the beginning to a micro services approach - and hence we have a need to use more than one repository. +
+. Start by forking the necessary repositories used for this application to make them "your own" - just like you did in the `Junior Developer` exercise. If you do not remember how to do the forking steps, please revisit the previous exercise to get the steps. The difference here is that the application is based on multiple services to operate correctly - the beginning to a micro services approach - and hence we have a need to use more than one repository. +
  +
 The 3 repos to fork over to your own user account are: +
 (*Note:* you may see other similar public repositories - make sure to clone the ones from `Administrator`)
@@ -56,12 +56,12 @@ Next, click on the blue **Commit changes** at the bottom of the screen.
 
 You are now ready to proceed to the next steps to work on this application within Red Hat OpenShift Dev Spaces. 
 
-=== Launching a new workpace
+=== Launching a new workspace
 
 As you saw in the Devfile, this application contains multiple "projects", which points to 3 different source repositories. The beauty of having this in the Devfile is that we can point Red Hat OpenShift Dev Spaces to the repository containing this Devfile and it will load up all these dependencies into the one workspace so we can work on these seamlessly.
 
 [start=1]
-. Navigate to the Red Hat OpenShift Dev Spaces dashboard to create a new application, click on **Create Workspace** button on the lefthand side and enter the GitLab URL of *your fork* of `widget-main`, i.e.: https://gitlab.{openshift_cluster_ingress_domain}/<username>/widget-main.git. Then click **Create & Open**. 
+. Navigate to the Red Hat OpenShift Dev Spaces dashboard to create a new application, click on **Create Workspace** button on the left-hand side and enter the GitLab URL of *your fork* of `widget-main`, i.e.: https://gitlab.{openshift_cluster_ingress_domain}/<username>/widget-main.git. Then click **Create & Open**. 
 
 [start=2]
 . Since the `guestbook` workspace is still running, and this environment is configured to only allow each user to have one active workspace at a time (to save cost of a running development environment), it will show a warning stating that you have an active running workspace, and gives you the choice to `Close running workspace (guestbook) and restart deep-thoughts` or `Switch to running workspace (guest) to save any changes`. In this case we are done with the previous exercise, and can safely choose the **Close running workspace (guestbook) and restart deep-thoughts** to close the existing workspace and restart this new one.
@@ -78,7 +78,7 @@ Explore the content of this file to see how the following is specified to custom
   - extensions
   - settings
 
-NOTE: Please be patient - it make take awhile for the workspace customzations to be fully applied! Also, there are a few pop-up notifications in the bottom left corner that can be safely ignored, and *nothing should be opened or installed by clicking install/open/yes as part of these notifications*. Feel free to close them out with the X in the top-right corner.
+NOTE: Please be patient - it may take awhile for the workspace customizations to be fully applied! Also, there are a few pop-up notifications in the bottom left corner that can be safely ignored, and *nothing should be opened or installed by clicking install/open/yes as part of these notifications*. Feel free to close them out with the X in the top-right corner.
 
 [start=4]
 . Navigate back to the **Explorer** view, you should now see all 3 repositories listed within the project - which we will get back to in a minute. 
@@ -103,7 +103,7 @@ Navigate to the **Task Manager**. Recognize that these commands listed here are 
  +
 Execute the following tasks (remember to click the green play icon):
  a. `widget-main >> devfile >> Copy Kubeconfig` - this will copy the kubeconfig file that was automatically injected into the workspace and copy it to the other containers that needs it.
- b. `widget-main >> devfile >> Set Angular Environment` - this will propagate some envirionment variables, etc. for our Angular based frontend. 
+ b. `widget-main >> devfile >> Set Angular Environment` - this will propagate some environment variables, etc. for our Angular based frontend. 
  c. `widget-frontend >> npm >> install` - this will pull in necessary dependencies needed.
  d. `widget-main >> devfile >> Start Quarkus Development mode` - this will start the backend API - a new Terminal should show in the bottom right part of the window. 
 
@@ -180,7 +180,7 @@ The changes made to the source code are proven to be working locally, so next st
  b. `git checkout -b deep-thought-rename` << creates a new branch with these changes 
  c. `git add .` << queues up the files to be committed to the staging area
  d. `git commit -m "Changed name to deep thoughts"` << Commits the files and provides a descriptive message
- e. `git push -u origin deep-thought-rename` << Pushes the changes to the upstream git repositry in GitLab
+ e. `git push -u origin deep-thought-rename` << Pushes the changes to the upstream git repository in GitLab
  f. `Ctrl + click` on the link provided in the terminal output of the previous command to create a new Merge Request (MR) on GitLab. Click the blue `Open` button.
 
 [start=3]
@@ -191,8 +191,8 @@ The changes made to the source code are proven to be working locally, so next st
 This concludes the `Advanced Developer` exercise. To recap, here are a few things you have learned as part of this exercise:
 
   - How to use a combination of a `DevFile` and `code-workspace` file to customize the development environment.
-  - How to work with multiple repositories in a micro-services fashion.
-  - How to use multiple commands / tasks to spin up services that interacts within the same workspace environment.
+  - How to work with multiple repositories in a microservices fashion.
+  - How to use multiple commands / tasks to spin up services that interact within the same workspace environment.
   - Using the VS Code IDE to make source code changes and observe the changes in real-time.
   - Using the built-in Terminal to interact with git and create Merge Requests.
 
