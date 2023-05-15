@@ -11,16 +11,17 @@ The application we will target for this exercise is a greenfield application wit
   - backend - a quarkus based implementation 
   - main - documentation and glue-code, including a DevFile
 
-The application already has some existing code that we will use as a starting point, but your main task for today is to rename the various components to "Deep Thoughts". 
+The application already has some existing code that we will use as a starting point, but your main task for today is to start renaming some of the various components from *"Random Thoughts"* to *"Deep Thoughts"*. 
 
 Let's start.
 
 === Forking the repositories
 
 [start=1]
-. Start by forking the necessary repositories used for this application to make them "your own" - just like you did in the `Junior Developer` exercise. If you don't remember how to do the forking steps, please re-visit the previous exercise to get the steps. +
+. Start by forking the necessary repositories used for this application to make them "your own" - just like you did in the `Junior Developer` exercise. If you don't remember how to do the forking steps, please re-visit the previous exercise to get the steps. The difference here is that the application is based on multiple services to operate correctly - the beginning to a micro services approach - and hence we have a need to use more than one repository. +
  +
-The 3 repos to fork over to your own user account are:
+The 3 repos to fork over to your own user account are: +
+(*Note:* you may see other similar public repositories - make sure to clone the ones from `Administrator`)
  - `Administrator/widget-main`
  - `Administrator/widget-frontend`
  - `Administrator/widget-backend`
@@ -70,42 +71,46 @@ NOTE: When the new workspace opens, you may once again receive a prompt related 
 [start=3]
 . Being that this application environment is more advanced, it introduces a new feature that wasn't present for the _Junior Developer_ exercise - including a `code-workspace` file. This is a file used to modify the actual IDE environment. While the `Devfile` is used to gain access to the various components, commands, etc. needed, the `code-workspace` is a file that is used to modify the Visual Studio Code environment to our liking. +
  +
-You may have noticed a pop-up at the bottom right with a blue button `Open Workspace`. If this button is still present, click **Open Workspace**. If the pop-up is no longer present, please click on the `deep-thoughts.code-workspace` file in the `Explorer` view and the blue button should again appear in the bottom right corner. +
+You may have noticed a pop-up at the bottom right with a blue button `Open Workspace`. If this button is still present, click **Open Workspace**. If the pop-up is no longer present, please click on the `deep-thoughts.code-workspace` file in the `Explorer` view and the blue button should again appear in the bottom right corner. Once fully processed, the workspace should look like the screenshot at the end of this section. +
  +
 Explore the content of this file to see how the following is specified to customize the environment by default. Recall how some of this was done manually in the previous exercise, i.e.: `extensions`:
   - folders
   - extensions
   - settings
 
+NOTE: Please be patient - it make take awhile for the workspace customzations to be fully applied! Also, there are a few pop-up notifications in the bottom left corner that can be safely ignored, and *nothing should be opened or installed by clicking install/open/yes as part of these notifications*. Feel free to close them out with the X in the top-right corner.
+
 [start=4]
 . Navigate back to the **Explorer** view, you should now see all 3 repositories listed within the project - which we will get back to in a minute. 
 
 [start=5]
-. Navigating to the *Extensions** left-hand side menu, you can also explore and see that the extensions listed in the `code-workspace` file have been installed and are ready for use. 
+. Navigating to the *Extensions* left-hand side menu, you can also explore and see that the extensions listed in the `code-workspace` file have been installed and are ready for use. 
 
 [start=6]
 . Notice also how the theme changed to a white / winter look and feel. 
 
+image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/workspace-winter.png[alt="OpenShift Overview",width=1000,height=250,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/workspace-winter.png]
+
 
 === Making changes to the application
 
-Equipped with a working Red Hat OpenShift Dev Spaces environment, tailored to our liking, we are now ready to start working on changing the code of this micro-services application. Again, as a reminder, our task today is to find places where we need to update/change the names of this application to "Deep Thoughts" to have it properly displayed in the running application. 
+Equipped with a working Red Hat OpenShift Dev Spaces environment, tailored to our liking, we are now ready to start working on changing the code of this micro-services application. Again, as a reminder, our task today is to find places where we need to update/change the names of this application from *"Random Thoughts"* to *"Deep Thoughts"* to have it properly displayed in the frontend of the running application. 
 
 [start=1]
 . The first step is often to figure out how to run, or start, the application so we can observe the changes we are making. +
  +
 Navigate to the **Task Manager**. Recognize that these commands listed here are coming from the `Devfile` we explored earlier. +
  +
-Execute the following tasks:
+Execute the following tasks (remember to click the green play icon):
  a. `widget-main >> devfile >> Copy Kubeconfig` - this will copy the kubeconfig file that was automatically injected into the workspace and copy it to the other containers that needs it.
  b. `widget-main >> devfile >> Set Angular Environment` - this will propagate some envirionment variables, etc. for our Angular based frontend. 
  c. `widget-frontend >> npm >> install` - this will pull in necessary dependencies needed.
  d. `widget-main >> devfile >> Start Quarkus Development mode` - this will start the backend API - a new Terminal should show in the bottom right part of the window. 
 
 [start=2]
-. Once the pop-up is presented to open port 8080 for the quarkus backend, click on the blue `Open in New Tab` button. (ignore the 5005 pop-up) +
+. Once the pop-up is presented to open port 8080 for the quarkus backend, click on the blue `Open in New Tab` button. (ignore the pop-up for port 5005) +
  + 
-The page that opens will show a `404` page, but don't worry - this is actually a good sign for this type of deployment as it's just indicating that no application is deployed at the root context of the quarkus application. What it also provides you is a list of additional endpoints that *are* available. +
+The page that opens will show a `404` page(!). Don't worry - this is actually a good sign for this type of deployment as it is just indicating that no application is deployed at the root context of this quarkus application. What it also provides you is a list of additional endpoints that *are* available. +
  +
 Click on the `/q/health-ui` to verify that the database is operational - it should show a green symbol at top, and indicate *UP*.
 
@@ -114,7 +119,7 @@ Click on the `/q/health-ui` to verify that the database is operational - it shou
  +
 Back in the "Task Manager" click `widget-main >> devfile >> Start NodeJS Development mode` to start the frontend application. Since the `npm install` task was executed previously, this step should now be quite fast, and a new pop-up should be present in the bottom-right corner, letting you know that a new process is listening on port 4200 - click on **Open In New Tab**, followed by **Open** on the next pop-up in the middle of the screen. +
  +
-This opens a new tab with a UI showing "Random Thoughts" (*Hint:* this may be one of the titles we need to change to "Deep Thoughts"). +
+This opens a new tab with a UI showing "Random Thoughts" (*Hint:* this may be one of the titles we need to change to *"Deep Thoughts"*). +
  +
 Just to make sure everything works, enter in some data into the "Random Thought" box and click **Submit**, then click the **Get Random Thoughts** button towards the top of the page to see your data returned to you. 
 
@@ -127,12 +132,13 @@ Once you have edited that line, the IDE running in a workspace actually auto-sav
  +
 The title of the tab is a start, but let also update the heading on the page itself. +
  +
-Explore the source code within the frontend to find the "Random Thoughts" heading on the page. Change it from "Random Thoughts" to "Deep Thoughts". *Hint:* Look in `widget-frontend >> src >> app >> app.components.ts`. +
+Explore the source code within the frontend to find the "Random Thoughts" heading on the page. Change it from *"Random Thoughts"* to *"Deep Thoughts"*. +
+*Hint:* Look in `widget-frontend >> src >> app >> app.components.ts` +
  + 
 Again, navigate back to the tab with the frontend. Observe that this time, the page automatically updated and we didn't need to even refresh the page. 
 
 [start=5]
-. So far, we have altered the frontend, but let us also make changes to the backend to brand it with "Deep Thoughts". +
+. So far, we have altered the frontend part of the application, but let us also make changes to the backend to brand it with *"Deep Thoughts"*. +
  + 
 Navigate back to the `Explorer` view, and this time expand the `widget-backend` folder, and open the `RandomThoughts.java` file to make backend changes. +
  +
@@ -152,7 +158,7 @@ to:
  RandomThoughtDto thought = new RandomThoughtDto(UUID.randomUUID(), modifiedThought);
 ----
 
-Save the file to apply the change to the backend.
+Save the file to apply the change to the backend service.
 
 [start=7]
 . Navigate back to the tab with the frontend, and submit a new thought in the box, click **Submit** followed by selecting the **Get Random Thoughts** button. +
