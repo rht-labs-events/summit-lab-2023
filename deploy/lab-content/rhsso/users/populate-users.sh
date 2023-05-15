@@ -5,6 +5,10 @@
 
 password=$1
 
+# Clean-up before re-populating the same file
+rm -f lab_users.yaml
+
+#  Loop through all users to create the necessary content
 for i in {1..60}
 do
   cat << EOF >> lab_users.yaml
