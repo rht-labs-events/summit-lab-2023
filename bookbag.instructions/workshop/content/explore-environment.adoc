@@ -23,9 +23,17 @@ NOTE: The OpenShift Overview dashboard will most likely show multiple warnings a
 image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/openshift-overview.png[alt="OpenShift Overview",width=750,height=750,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/openshift-overview.png]
 
 [start=3]
-. Next click on **Operators** >> **Installed Operators**
+. Next click on **Operators** >> **Installed Operators** +
+ +
+Here you can you explore all the operators that are up and running in the cluster. Click on "Project" down-down at the top to select "All Projects" - this will show you all the operators that are currently deployed and operational in the environment. +
+ +
+In particular, notice and explore the following operators that we rely on for this lab environment:
+ - Red Hat OpenShift GitOps
+ - Red Hat OpenShift Dev Spaces
+ - DevWorkspace Operator
+ - Red Hat Single Sign-On Operator
 
-*coming soon...* (week of May 15th)
+*SCREENSHOT OF OPERATORS VIEW COMING HERE...* (week of May 15th)
 
 [start=4]
 . It all started with GitOps - navigate to ArgoCD to see the deployment
@@ -33,9 +41,15 @@ image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/boo
 *coming soon...* (week of May 15th)
 
 [start=5]
-. Next let's explore Red Hat SSO and how it is running
+. Next let's explore Red Hat SSO and how it is running. While the `cluster-reader` role that your user is assigned has read-only access to 98% of everything in OpenShift, it won't grant you access to the RH SSO UI. Instead we will explore the Custom Resources deployed to support the runtime use of SSO - including the SSO realm (`KeycloakRealm`), the clients (`KeycloakClient`) used for OpenShift and GitLab integrations, as well as the users (`KeycloakUser`). +
+ +
+Start by making sure the OpenShift `Administrator` view is active in your browser (Very top under the Red Hat OpenShift logo should show "Administrator"). Next expand the `Administration` menu at the very bottom of the lefthand side menu, then click on `CustomResourceDefinitions`. Next locate the `Keycloak*` CRDs in this list and click on each of them as listed above. Once in the CRD view, click on `Instances` to see the *Custom Resource* instances that RH SSO / keycloak loaded up and that are in active use as we speak. +
+ +
+You should be able to find the instance for your user that you are logged in with in this list. This is how the users are injected and managed for this lab. +
+ +
+Imagine how this can be an extension of the GitOps approach above and have ArgoCD manage these resources automatically based on the source-of-truth git repo. 
 
-*coming soon...* (week of May 15th)
+*SCREENSHOT OF RH SSO COMING HERE...* (week of May 15th)
 
 [start=6]
 . We use GitLab as our source control management in this lab. This instance was deployed by using helm charts that allows for customization - including SSO integration. 
@@ -53,6 +67,8 @@ image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/boo
 === Red Hat OpenShift Dev Spaces Deployment
 
 Now that we have explored how the core components are running to support our lab, let us explore how Red Hat OpenShift Dev Spaces is made available to users. 
+
+*more info coming soon* (week of May 15th)
 
 
 === GitLab and OAuth
