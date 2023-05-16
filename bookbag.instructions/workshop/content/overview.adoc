@@ -34,3 +34,8 @@ Thank you!
 [1] : https://developers.redhat.com/products/openshift-dev-spaces/overview
 
 
+==== Credits
+
+The content of this lab was developer based on the Quickstart examples found within Red Hat OpenShift Dev Spaces. 
+
+In addition, the `Advanced Developer` chapter is based on the great demo content found here: https://github.com/eclipse-che-demo-app
