@@ -15,8 +15,9 @@ metadata:
   namespace: devspaces-operator
 spec:
   channel: stable
-  installPlanApproval: Automatic
+  installPlanApproval: Manual
   name: devspaces
   source: redhat-operators
   sourceNamespace: openshift-marketplace
+  startingCSV: devspacesoperator.v3.5.0
 
