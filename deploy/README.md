@@ -55,7 +55,7 @@ git clone https://github.com/che-incubator/kubernetes-image-puller
 cd kubernetes-image-puller/deploy/openshift
 ```
 
-2. Update the `configmap.yaml` to include the necessary images. Replaces the `IMAGES` entries with the following:
+2. Update the `configmap.yaml` to include the necessary images. In this case, peplace the `IMAGES` entries with the following:
 
 ```
 udi-rhel8-35=registry.redhat.io/devspaces/udi-rhel8:3.5;
