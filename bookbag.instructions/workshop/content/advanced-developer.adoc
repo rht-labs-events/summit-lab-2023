@@ -69,7 +69,7 @@ As you saw in the Devfile, this application contains multiple "projects", which 
 NOTE: When the new workspace opens, you may once again receive a prompt related to workspace trust. Please click **Trust Workspace and Install** / **Yes, I trust the author** as was performed in the _Junior Developer_ section.
 
 [start=3]
-. Being that this application environment is more advanced, it introduces a new feature that wasn't present for the _Junior Developer_ exercise - including a `code-workspace` file. This is a file used to modify the actual IDE environment. While the `Devfile` is used to gain access to the various components, commands, etc. needed, the `code-workspace` is a file that is used to modify the Visual Studio Code environment to our liking. +
+. Being that this application environment is more advanced, it introduces a new feature that wasn't present for the _Junior Developer_ exercise - including a `code-workspace` file. This is a file used to modify the actual IDE environment. While the `Devfile` is used to gain access to the various components, commands, etc. needed, the `code-workspace` is a file that is used to modify the Visual Studio Code environment to our liking. More information about `.code-workspace` files can be found here: https://code.visualstudio.com/docs/editor/workspaces +
  +
 You may have noticed a pop-up at the bottom right with a blue button `Open Workspace`. If this button is still present, click **Open Workspace**. If the pop-up is no longer present, please click on the `deep-thoughts.code-workspace` file in the `Explorer` view and the blue button should again appear in the bottom right corner. Once fully processed, the workspace should look like the screenshot at the end of this section. +
  +
