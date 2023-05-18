@@ -12,6 +12,8 @@ spec:
   containerRegistry: {}
   devEnvironments:
     disableContainerBuildCapabilities: false
+    storage:
+      pvcStrategy: 'per-workspace'
   gitServices: {}
   networking: {}
 
