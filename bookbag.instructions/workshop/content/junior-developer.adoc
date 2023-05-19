@@ -47,7 +47,7 @@ image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/boo
 image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-fork-guestbook.png[alt="OpenShift Overview",width=1000,height=250,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-fork-guestbook.png]
 
 [start=6]
-. The screen show now have advanced to your fork of the repository. This can be validated by looking at the URL in the browser - the end of the URL should read `<username>/guestbook` where `<username>` is your SSO username.  +
+. The screen should now have advanced to your fork of the repository. This can be validated by looking at the URL in the browser - the end of the URL should read `<username>/guestbook` where `<username>` is your SSO username.  +
 +
 While we are in this view, let's grab the URL to clone this repository for the next step - click on the blue **Clone** drop-down button and click the **Copy URL button** next to the "Clone with HTTPS" box.
 
@@ -103,7 +103,7 @@ image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/boo
 [start=6]
 . To better navigate the UI, we will install an extension to aid with running this application. We will cover more about extensions in the next chapter, but for now, just click on the **Extensions** menu option in the left-hand side margin and search for "Task Manager" to install this extension from the marketplace. Once found, click on the blue **Install** button and wait for the task to complete. You should now have a new left-hand side margin item at the bottom that is the "Task Manager". +
  +
-Feel free to close the "Extension: Task Manager" window that is visible in the middle of the screen. 
+Feel free to close the "Extension: Task Manager" tab that is visible in the middle of the screen. 
 
 image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-task-manager.png[alt="OpenShift Overview",width=450,height=150,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-task-manager.png]
 
@@ -132,7 +132,7 @@ image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/boo
 
 Copy the below snippet and paste it into the `components` section, right before line 26 / `commands`. 
 
-[source,yaml]]
+[source,yaml]
   - name: mongo
     container:
       image: registry.redhat.io/rhscl/mongodb-36-rhel7:1-50
@@ -224,7 +224,7 @@ In this section, you will get to experience how to modify the runtime container 
 
 
 [start=1]
-. Within your Workspace, navigate to the Terminal and type `mongo` followed by a couple of tab- keystrokes. As you probably know from any Linux based environments, this would have either shown you available CLI tools that starts with mongo, or if there was only one command available it would autocomplete it. In this case, you will see that that nothing appears - as expected since we don't have any mongo CLI tools installed.
+. Within your Workspace, navigate to the Terminal and type `mongo` followed by a couple of tab- keystrokes. [If you don't want to exit out of the running application, you can open a new Terminal tab by pressing the plus sign on the top right of the existing terminal panel.] As you probably know from any Linux based environments, this would have either shown you available CLI tools that starts with mongo, or if there was only one command available it would autocomplete it. In this case, you will see that that nothing appears - as expected since we don't have any mongo CLI tools installed.
 
 image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-terminal-no-mongotools.png[alt="OpenShift Overview",width=750,height=350,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-terminal-no-mongotools.png]
 
@@ -254,21 +254,21 @@ Run `oc project <username>-devspaces`, for example `oc project user250-devspaces
 image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-openshift-project.png[alt="OpenShift Overview",width=750,height=350,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-openshift-project.png]
 
 [start=4]
-. Before we explore the files behind this build, let us load up everything needed in OpenShift as the build may take a bit of time to complete. +
-+
-At the root level of your git repository, in the Terminal, run the following commands:
+. At the root level of your git repository, in the Terminal, run the following commands:
 
   a. `oc apply -f build/` 
   b. `oc start-build guestbook-dev-environment`
 
+NOTE: This build may take awhile to complete, so please be patent.
+
 image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-start-img-build.png[alt="OpenShift Overview",width=850,height=350,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-start-img-build.png]
 
 [start=5]
-. *Explore Time* Navigate to the OpenShift console to see the build we just started within OpenShift. 
+. *Exploration Time!* Navigate to the OpenShift console to see the build we just started within OpenShift. 
 
   a. In the OpenShift web console, make sure to select "Administrator" at the top drop-down in the left-hand side menu to use the _Administrator_ perspective.
   b. Then, expand the **Builds** section on the left hand side, and click on **Builds**. 
-  c. Click on the "guestbook-dev-environment-*" build to see more details including the logs of the active build that was previously triggered.
+  c. Click on the `+guestbook-dev-environment-*+` build to see more details including the logs of the active build that was previously triggered.
   d. Feel free to explore both the `BuildConfigs` and `ImageStreams` sections in the left hand side menu.
 
 image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/openshift-guestbook-builds.png[alt="OpenShift Overview",width=1000,height=350,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/openshift-guestbook-builds.png]
@@ -293,16 +293,16 @@ image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/boo
 image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/openshift-guestbook-image-path.png[alt="OpenShift Overview",width=1000,height=350,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/openshift-guestbook-image-path.png]
 
 [start=9]
-. Since this is a new image that we are still trialing to see if it meets our needs, we will just load it up temporarily by using the inline method we used earlier. This will reference the local image and let us test it before we make it permanent by pushing the image to a centralized image registry outside of the OpenShift environment and update the Devfile with the new image. +
+. Since this is a new image that we are still trialing to see if it meets our needs, we will just load it up temporarily by using the inline method we used earlier. This will reference the local image and let us test it before we make it permanent by pushing the image to a centralized image registry outside of the OpenShift environment and updating the Devfile with the new image. +
  +
-Reference the above steps for how to navigate back to the inline view, and when there look for the `image: 'registry.redhat.io/devspaces/udi-rhel8:3.5'` line - this is the one we are replacing with our newly built image. See screenshot below. 
+Reference the above steps for how to navigate back to the inline view, and when you're there, look for the `image: 'registry.redhat.io/devspaces/udi-rhel8:3.5'` line within the `+nodejs+` container configuration - this is the one we are replacing with our newly built image. See screenshot below. 
 
 image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-image-update-inline.png[alt="OpenShift Overview",width=1000,height=350,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/devspaces-image-update-inline.png]
 
-Click **Save** to update the workspace.
+Click **Save** to update the workspace (and **Yes** to restarting with the changes).
 
 [start=10]
-. Close down any old tabs to your active workspace, and click on the `guestbook` workspace in the left-hand side menu to re-open the newly re-launched workspace. +
+. Meanwhile, close down any old tabs to your active workspace, and click on the `guestbook` workspace in the left-hand side menu to re-open the newly re-launched workspace. +
  +
 Note how everything has been preserved, including your previous file-view, extensions, etc.
 
@@ -324,15 +324,15 @@ This should connect to the locally deployed mongo and you should successfully se
 ===== Congratulations 
 This concludes the `Junior Developer` exercise. To recap, here are a few things you have learned as part of this exercise:
 
-  - Basic navigation of the Red Hat OpenShift Dev Spaces environment within the web browser.
+  - Explored basic navigation of the Red Hat OpenShift Dev Spaces environment within the web browser.
   - Used Devfiles to load up a consistent development environment.
   - Installed and used extensions (Task Manager) to navigate tasks defined in the DevFile.
   - Observed build warnings and deployment errors - and learned to fix them, permanently and temporarily testing it inline.
-  - Interactions with git (GitLab in this case), through an OAuth integration - i.e. no need for additional developer credentials.
-  - Navigation of the IDE editor and source control features - such as branches and add/commit/push.
-  - Building custom runtime developer environments by altering container images.
-  - Observed how Red Hat OpenShift Dev Spaces allowed you to do all of these actions with ease, while your runtime was cached and allowing you to pick up right where you left off.
+  - Connected with git (GitLab in this case) through an OAuth integration - i.e. no need for additional developer credentials.
+  - Navigated across the IDE editor and source control features - such as branches and add/commit/push.
+  - Built custom runtime developer environments by altering container images.
+  - Observed how Red Hat OpenShift Dev Spaces allowed you to do all of these actions with ease, while your runtime was cached, allowing you to pick up right where you left off.
 
-We truly hope you enjoyed this exercise. Now on to the `Advanced Developer` exercise, where things will be harder and not as thoroughly explained as it was for the `Junior Developer` Exercise. 
+We truly hope you enjoyed this exercise. Now on to the `Advanced Developer` exercise, where things will be harder and not as thoroughly explained as it was for the `Junior Developer` exercise. 
 
-*TIP:* Keep the `Junior Developer` Exercise open in a separate tab to jump back here for guidance - if needed.
+*TIP:* Keep the `Junior Developer` exercise open in a separate tab to jump back here for guidance - if needed.
