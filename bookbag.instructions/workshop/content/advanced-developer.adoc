@@ -42,7 +42,7 @@ Navigate to the **widget-main** repository that belongs to your user, then click
  +
 Click on the drop-down next to the _Open in Web IDE_ blue button and choose **Edit**. 
 
-image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-edit-devfile.png[alt="OpenShift Overview",width=1000,height=250,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-edit-devfile.png]
+image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-edit-devfile.png[alt="GitLab Edit Devfile",width=1000,height=250,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/gitlab-edit-devfile.png]
 
 NOTE: you may have to click **Edit** a second time to actually enter the editing mode 
 
@@ -89,7 +89,7 @@ NOTE: Please be patient - it may take awhile for the workspace customizations to
 [start=6]
 . Notice also how the theme changed to a white / winter look and feel. 
 
-image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/workspace-winter.png[alt="OpenShift Overview",width=1000,height=250,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/workspace-winter.png]
+image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/workspace-winter.png[alt="Workspace Winter Theme",width=1000,height=250,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/workspace-winter.png]
 
 
 === Making changes to the application
