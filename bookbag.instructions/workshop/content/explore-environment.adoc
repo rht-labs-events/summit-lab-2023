@@ -27,7 +27,7 @@ image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/boo
 [start=3]
 . Next click on **Operators** >> **Installed Operators** +
  +
-Here you can you explore all the operators that are up and running in the cluster. Click on "Project" down-down at the top to select "All Projects" - this will show you all the operators that are currently deployed and operational in the environment. +
+Here you can you explore all the operators that are up and running in the cluster. Click on **Project** down-down at the top to select **All Projects** - this will show you all the operators that are currently deployed and operational in the environment. +
  +
 In particular, notice and explore the following operators that we rely on for this lab environment:
  - Red Hat OpenShift GitOps
@@ -38,40 +38,40 @@ In particular, notice and explore the following operators that we rely on for th
 image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/openshift-all-installed-operators.png[alt="OpenShift Operators",width=750,height=750,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/openshift-all-installed-operators.png]
 
 [start=4]
-. It all started with GitOps - navigate to ArgoCD to see the deployment. Start by selecting `openshift-gitops` in the `Project` drop-down at the top. *Note:* You have to click the button next to "Show default projects" to see the `openshift-gitops` project/namespace. +
+. It all started with GitOps - navigate to Argo CD to see the deployment. Start by selecting **openshift-gitops** in the `Project` drop-down at the top. *Note:* You have to click the button next to "Show default projects" to see the `openshift-gitops` project/namespace. +
  +
-Next click on `Networking` >> `Routes` in the left hand side menu, and click on the route for `openshift-gitops-server` in the 3rd column, under `Location`. +
+Next click on **Networking** >> **Routes** in the left hand side menu, and click on the route for **openshift-gitops-server** in the 3rd column, under `Location`. +
  +
 Alternatively, click on this route if you cannot locate the URL from the step above: +
 https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain} +
  +
-*NOTE:* This GitOps / ArgoCD deploment has not been configured with valid cerficiates, so you will have to click `Advanced` to select the `Proceed to openshift-gitops..` link. +
+*NOTE:* This GitOps / Argo CD deployment has not been configured with valid certificates, so you will have to click **Advanced** to select the **Proceed to openshift-gitops..** link. +
  +
-Next click on `LOG IN VIA OPENSHIFT`, then click on `rhsso`. Use the same login and password that were provided earlier.  When prompted to `Authorize Access`, select and click the `Allow selected permissions` button. This should present you with a dashboard view like the one in the screenshot below. +
+Next, click on **LOG IN VIA OPENSHIFT**, then click on **rhsso**. Use the same login and password that were provided earlier.  When prompted to `Authorize Access`, select and click the **Allow selected permissions** button. This should present you with a dashboard view like the one in the screenshot below. +
  + 
-This is the UI of ArgoCD, and while it presents you with some good first-hand knowledge about what is going on in the environment, the actual content is not managed through this UI for this lab. The actual "applications" are managed through Custom Resources in OpenShift, and hence we are able to fully automate this deployment without having to navigate a UI to set this up. More on Custom Resources later. +
+This is the UI of Argo CD, and while it presents you with some good first-hand knowledge about what is going on in the environment, the actual content is not managed through this UI for this lab. The actual "applications" are managed through Custom Resources in OpenShift, and hence we are able to fully automate this deployment without having to navigate a UI to set this up. More on Custom Resources later. +
  +
-While in the ArgoCD UI, feel free to navigate around to see the various content and status of the current deployments. For example, if you click on the `checluster` tile, you will get a graphical view of all the components managed under the `checluster` Custom Resource, which is what the Red Hat OpenShift Dev Spaces operator uses to set up the necessary components for a fully operational environment. Try clicking on one of the objects to see the full `yaml` definition for that object, then try finding the same object within OpenShift - from the OpenShift Web Console view. +
+While in the Argo CD UI, feel free to navigate around to see the various content and status of the current deployments. For example, if you click on the `checluster` tile, you will get a graphical view of all the components managed under the `checluster` Custom Resource, which is what the Red Hat OpenShift Dev Spaces operator uses to set up the necessary components for a fully operational environment. Try clicking on one of the objects to see the full `yaml` definition for that object, then try finding the same object within OpenShift - from the OpenShift Web Console view. +
  +
 image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/openshift-gitops-dashboard.png[alt="OpenShift GitOps Dashboard",width=750,height=750,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/openshift-gitops-dashboard.png]
 
 [start=5]
-. Next let's explore Red Hat SSO and how it is running. While the `cluster-reader` role that your user is assigned has read-only access to 98% of everything in OpenShift, it won't grant you access to the RH SSO UI. Instead we will explore the Custom Resources deployed to support the runtime use of SSO - including the SSO realm (`KeycloakRealm`), the clients (`KeycloakClient`) used for OpenShift and GitLab integrations, as well as the users (`KeycloakUser`). +
+. Next, let's explore Red Hat SSO and how it is running. While the `cluster-reader` role that your user is assigned has read-only access to 98% of everything in OpenShift, it won't grant you access to the Red Hat SSO UI. Instead, we will explore the Custom Resources deployed to support the runtime use of SSO - including the SSO realm (`KeycloakRealm`), the clients (`KeycloakClient`) used for OpenShift and GitLab integrations, as well as the users (`KeycloakUser`). +
  +
-So what are these Custom Resources, which we also mentioned above under the GitOps section? Let's take a closer look at the definition of some, and where you can find them within OpenShift. Start by making sure the OpenShift `Administrator` view is active in your browser (Very top under the Red Hat OpenShift logo should show "Administrator"). Next expand the `Administration` menu at the very bottom of the lefthand side menu, then click on `CustomResourceDefinitions` (CRD). Next locate one of the `Keycloak*` CRDs in this list and click on each of the ones listed above - i.e.: `KeycloakRealm`, `KeycloakClient` and `KeycloakUser`. Once in the CRD view, click on `Instances` to see the *Custom Resource* instances that RH SSO / keycloak loaded up and that are in active use as we speak. *Hint:* Click on `YAML` to see all the details, and the object view of what OpenShift processes. This is a custom resource, or an extension of OpenShift/Kubernetes, that allows the use of solution specific objects within your deployment - for example RH SSO in this case, or Red Hat OpenShift Dev Spaces as mentioned above. +
+So what are these Custom Resources, which we also mentioned above under the GitOps section? Let's take a closer look at the definition of some, and where you can find them within OpenShift. Start by making sure the OpenShift "Administrator" perspective is active in your browser (Very top under the Red Hat OpenShift logo should show `Administrator`). Next, expand the `Administration` menu at the very bottom of the lefthand side menu, then click on **CustomResourceDefinitions** (CRD). Next, locate one of the `Keycloak` CRDs in this list and click on each of the ones listed above - i.e.: `KeycloakRealm`, `KeycloakClient` and `KeycloakUser`. Once in the CustomResourceDefinitions view, click on **Instances** to see the _Custom Resource_ instances that Red Hat SSO / keycloak loaded up and that are in active use as we speak. *Hint:* Click on `YAML` to see all the details, and the object view of what OpenShift processes. This is a custom resource, or an extension of OpenShift/Kubernetes, that allows the use of solution specific objects within your deployment - for example Red Hat SSO in this case, or Red Hat OpenShift Dev Spaces as mentioned above. +
  +
 Looking back at the list of `KeycloackUser` instances, you should be able to find the instance for your user that you are logged in with. This is how the users are injected into the SSO deployment and managed for this lab. +
  +
-Imagine how the SSO users could potentially be an extension of the GitOps approach above and have ArgoCD manage these resources automatically based on the source-of-truth git repo. +
+Imagine how the SSO users could potentially be an extension of the GitOps approach above and have Argo CD manage these resources automatically based on the source-of-truth git repository. +
  +
-The below screenshot is of an operational RH Single Sign-On. It is left here for reference, but as mentioned above you will not have access to this UI for this particular lab environment
+The screenshot below depicts an operational Red Hat Single Sign-On instance. It is left here for reference, but as mentioned above, you will not have access to this UI for this particular lab environment
 
 image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/openshift-rh-sso.png[alt="Red Hat Single Sign-On",width=750,height=750,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/openshift-rh-sso.png]
 
 [start=6]
 . We use GitLab as our source control management as part of these lab exercises. This instance was deployed by using helm charts that allows for customization - including the SSO integration. +
  +
-You will get to see gitlab first hand in the next few chapters, but if you are wondering how it is running within the OpenShift environment, please navigate to the `gitlab-ce` namespace to check out the following (click these in the left-hand side menu). Use the top level tabs to navigate the various information of each of these - including the detailed `YAML` view of each object:
+You will get to see GitLab first hand in the next few chapters, but if you are wondering how it is running within the OpenShift environment, please navigate to the `gitlab-ce` namespace and check out the following (click these in the left-hand side menu). Use the top level tabs to navigate the various information of each of these - including the detailed `YAML` view of each object:
  
  - `Workloads` >> `Pods` - should see 3 running pods, including postgresql, redis and gitlab +  a few completed pods that were used to deploy GitLab.
  - `Workloads` >> `ReplicationControllers` - ensures that the correct/specified number of replicas of the above pods are running at all times.
@@ -97,17 +97,17 @@ image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/boo
 
 Now that we have explored how the core components are running to support our lab, let us explore how Red Hat OpenShift Dev Spaces is made available to users. +
  +
-Start by clicking on `Operators` >> `Installed Operators` in the left hand side menu. Look for the `Red Hat OpenShift Dev Spaces` operator - select it by clicking the title. +
+Start by clicking on **Operators** >> **Installed Operators** in the left hand side menu. Look for the `Red Hat OpenShift Dev Spaces` operator - select it by clicking the title. +
  +
-Next click on `Subscription` in the top menu bar. This shows you what version of the Operator is installed, and if it's handled in an automatic or manual update approvals. In the case of this lab we use `Manual` to "lock in" a specific version, but in most cases `automatic` is preferred and recommended. +
+Next click on **Subscription** in the top menu bar. This shows you what version of the Operator is installed, and if it's handled in an automatic or manual update approvals. In the case of this lab we use `Manual` to "lock in" a specific version, but in most cases `automatic` is preferred and recommended. +
  +
-Click on `Red Hat OpenShift Dev Spaces instance Specification`, then click on the `devspaces` object below under `CheClusters`. The `Details` shows the details around some of the key components used to support this deployment. To change specific parameters found in the https://access.redhat.com/documentation/en-us/red_hat_openshift_dev_spaces/3.5/html/administration_guide/index[Official Admin Documentation], you need to navigate to the `YAML` view. Scroll down to the `spec:` part of the yaml to see how this instance of RH OpenShift Dev Spaces is configured to work for this lab.
+Click on **Red Hat OpenShift Dev Spaces instance Specification**, then click on the `devspaces` object below under `CheClusters`. The `Details` shows the details around some of the key components used to support this deployment. To change specific parameters found in the https://access.redhat.com/documentation/en-us/red_hat_openshift_dev_spaces/3.5/html/administration_guide/index[Official Admin Documentation], you need to navigate to the `YAML` view. Scroll down to the `spec:` part of the yaml to see how this instance of RH OpenShift Dev Spaces is configured to work for this lab.
 
 image:https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/openshift-devspaces-config.png[alt="RH OpenShift Dev Spaces Configuration",width=1000,height=750,link=https://raw.githubusercontent.com/rht-labs-events/summit-lab-2023/main/bookbag.instructions/workshop/content/media/openshift-devspaces-config.png]
 
 === GitLab and OAuth
 
-All of the tools in this lab have been integrated with Single Sign On, including OpenShift, GitLab, and Dev Spaces. This allows a centralized place where the users are managed, and for a better overall user experience. However, there is one more OAuth integration in play. By configuring OAuth for the git provider, in this case GitLab, it allows users to work with remote git repositories without explicitly providing credentials.
+All of the tools in this lab have been integrated with Red Hat Single Sign On, including OpenShift, GitLab, and Dev Spaces. This allows a centralized place where the users are managed, and for a better overall user experience. However, there is one more OAuth integration in play. By configuring OAuth for the git provider, in this case GitLab, it allows users to work with remote git repositories without explicitly providing credentials.
 
 
 === Big Picture - Dev Integration
